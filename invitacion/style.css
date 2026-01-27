@@ -149,7 +149,7 @@ p { margin-bottom: 1rem; font-weight: 300; }
 header {
     position: relative;
     height: 100vh;
-    background-image: url('https://st1.uvnimg.com/ec/82/4b865a6125ed489048c1fe728fc9/mia-kalifa.jpg');
+    background-image: url('https://www.casajordan.com.mx/blog/wp-content/uploads/2015/03/xva%C3%B1os.jpg');
     background-size: cover;
     background-position: center;
     display: flex;
@@ -328,4 +328,5 @@ footer {
     .timeline-item { flex-direction: row; justify-content: center; text-align: left; gap: 30px;}
     .timeline-item::after { display: none; }
     .main-title { font-size: 8rem; }
+
 }
