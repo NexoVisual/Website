@@ -1,1 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis XV Años - Alicia</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Pinyon+Script&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+    <div class="music-control" onclick="toggleMusic()">
+        <i class="fas fa-play" id="musicIcon"></i>
+    </div>
+    <audio id="bgMusic" loop>
+       <source src="perfect-song.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="container">
+        
+        <header>
+            <p class="sub-title reveal">Mis XV Años</p>
+            <h1 class="main-title reveal">Alicia</h1>
+            <div class="header-overlay"></div>
+        </header>
+
+        <section class="text-center">
+            <div class="reveal">
+                <img src="https://placehold.co/100x100/transparent/d4a5a5?text=⚜️" alt="Adorno" class="flower-divider">
+                <p class="quote-section">
+                    "Familia y amigos, esta celebración es un acontecimiento único en mi vida y estoy muy emocionada de compartirla con las personas que tanto quiero."
+                </p>
+                <img src="https://images-cdn.ubuy.fr/65c2fbe9f6a91e7f66002008-mia-khalifa-celebrity-actress-8-5-x-11.jpg" class="main-photo" alt="Alicia">
+            </div>
+
+            <div class="reveal">
+                <p class="parents-role">Con la bendición de Dios y de mis padres</p>
+                <div class="parents-names">
+                    <h3>Alexander Dermont</h3>
+                    <h3>&</h3>
+                    <h3>Soledad Arias</h3>
+                </div>
+                <br>
+                <p class="parents-role">Y mis padrinos</p>
+                <div class="parents-names">
+                    <h3>Ángeles Gutiérrez</h3>
+                    <h3>&</h3>
+                    <h3>Edder Ponce</h3>
+                </div>
+            </div>
+        </section>
+
+        <section class="save-the-date text-center reveal">
+            <p class="sub-title">Celebra conmigo</p>
+            <h2>Save the Date</h2>
+            
+            <div class="gallery-grid">
+                <img src="https://placehold.co/300x500/d4a5a5/white?text=12" class="gallery-img">
+                <img src="https://placehold.co/300x500/d4a5a5/white?text=05" class="gallery-img">
+                <img src="https://placehold.co/300x500/d4a5a5/white?text=25" class="gallery-img">
+            </div>
+
+            <h3 class="date-highlight">Sábado 16 Mayo 2026</h3>
+            
+            <div class="countdown-container" id="countdown">
+                <div class="time-box">
+                    <span id="days">00</span>
+                    <label>Días</label>
+                </div>
+                <div class="time-box">
+                    <span id="hours">00</span>
+                    <label>Hrs</label>
+                </div>
+                <div class="time-box">
+                    <span id="minutes">00</span>
+                    <label>Min</label>
+                </div>
+                <div class="time-box">
+                    <span id="seconds">00</span>
+                    <label>Seg</label>
+                </div>
+        </div>
+
+        <div class="calendar-buttons" style="margin-top: 30px;">
+            <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Mis+XV+Años+-+Alicia&dates=20260516T170000/20260517T020000&details=¡Hola!+Estoy+muy+emocionada+de+celebrar+este+día+contigo.+Aquí+tienes+los+detalles+del+evento.&location=Santuario+de+los+Remedios,+Cholula&sf=true&output=xml" 
+            target="_blank" class="btn">
+            <i class="fab fa-google"></i> Agendar en Google
+            </a>
+
+            <a href="javascript:void(0)" onclick="descargarICS()" class="btn btn-outline">
+            <i class="fab fa-apple"></i> Apple / Outlook
+            </a>
+        </div>
+    </section>
+
+        <section class="text-center reveal">
+            <h2>Itinerario</h2>
+            <br>
+            
+            <div class="timeline-item">
+                <div class="timeline-icon"><i class="fas fa-church"></i></div>
+                <div>
+                    <h3>Ceremonia Religiosa</h3>
+                    <p class="timeline-time">05:00 PM</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-icon"><i class="fas fa-glass-cheers"></i></div>
+                <div>
+                    <h3>Recepción</h3>
+                    <p class="timeline-time">07:00 PM</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-icon"><i class="fas fa-utensils"></i></div>
+                <div>
+                    <h3>Cena</h3>
+                    <p class="timeline-time">09:30 PM</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-icon"><i class="fas fa-music"></i></div>
+                <div>
+                    <h3>¡A Bailar!</h3>
+                    <p class="timeline-time">10:00 PM</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="text-center reveal" style="background-color: #fff;">
+            <h2>Ubicación</h2>
+            
+            <div class="location-card">
+                <h3>Santuario de los Remedios</h3>
+                <p>Ferrocarril, San Miguel, Zona Arqueológica.</p>
+                <a href="https://goo.gl/maps/tulink" target="_blank" class="btn">Ver Mapa</a>
+            </div>
+
+            <div class="location-card">
+                <h3>Salón Del Sol</h3>
+                <p>Calle Principal #123, Centro.</p>
+                <a href="https://goo.gl/maps/tulink" target="_blank" class="btn">Ver Mapa</a>
+            </div>
+        </section>
+
+        <section class="text-center reveal" style="background-color: var(--color-secondary);">
+            <i class="fas fa-gift gift-icon"></i>
+            <h2>Mesa de Regalos</h2>
+            <p>Su presencia es mi mejor regalo, pero si desean tener un detalle conmigo:</p>
+            
+            <div style="margin: 30px 0;">
+                <i class="fas fa-envelope-open-text" style="font-size: 1.5rem; margin-right: 10px;"></i>
+                <strong>Lluvia de Sobres</strong>
+                <p style="font-size: 0.9rem; margin-top: 5px;">(Efectivo en recepción)</p>
+            </div>
+
+            <p>O transferencia a la siguiente cuenta:</p>
+            <div class="bank-details">
+                BBVA<br>
+                NATASHA DERMONT ARIAS<br>
+                CLABE: 4152 1234 5678 890
+            </div>
+        </section>
+
+        <section class="text-center reveal">
+            <i class="fas fa-tshirt gift-icon"></i>
+            <h2>Código de Vestimenta</h2>
+            <p style="letter-spacing: 2px; font-weight: bold;">FORMAL / ETIQUETA</p>
+            <p>Color rosa reservado solo para la quinceañera.</p>
+            <img src="https://placehold.co/600x300/pink/white?text=Inspiracion+Vestido" class="dress-code-img" alt="Dress Code">
+        </section>
+
+        <section class="text-center reveal">
+            <i class="fas fa-camera gift-icon"></i>
+            <h2>Captura la Alegría</h2>
+            <p>Comparte tus fotos usando nuestro hashtag:</p>
+            <h3 style="letter-spacing: 2px; font-family: 'Lato', sans-serif; font-weight: bold; font-size: 1.5rem;">#ALICIAXV</h3>
+            <a href="#" class="btn">Ver Galería</a>
+        </section>
+
+        <section class="text-center reveal" style="padding-bottom: 80px;">
+            <h2>Confirmar Asistencia</h2>
+            <p>No Niños - Evento exclusivo para adultos y jóvenes.</p>
+            <br>
+            <form style="max-width: 400px; margin: 0 auto; text-align: left;">
+                <input type="text" placeholder="Nombre Completo" class="input-field">
+                <select class="input-field">
+                    <option>Número de pases</option>
+                    <option>1 Persona</option>
+                    <option>2 Personas</option>
+                </select>
+                <textarea placeholder="Mensaje para la quinceañera" class="input-field"></textarea>
+                <button type="button" class="btn" style="width: 100%;">Enviar Confirmación</button>
+            </form>
+        </section>
+
+        <footer class="text-center">
+            <p>Mi familia y yo te esperamos con mucho cariño.</p>
+            <h2 class="main-title" style="color: white; font-size: 3rem;">Alicia</h2>
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
