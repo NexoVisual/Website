@@ -1,0 +1,118 @@
+/**
+General
+**/
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+    letter-spacing: 0.03em
+}
+
+body {
+    margin: auto;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/**
+Themes
+**/
+.blue-theme {
+    background-color: #275a61;
+}
+
+/**
+Containers
+**/
+
+.large-container {
+    max-width: 920px;
+    padding: 40px 80px;
+}
+/**
+Buttons
+**/
+
+.btn-primary {
+    display: inline-block;
+    background-color: white;
+    color: #275a61;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-weight: 700;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    transform: scale(1.05);
+    background-color: #f0f0f0;
+}
+
+/**
+Nav
+**/
+
+.nav-container {
+    max-width: 920px;
+    padding: 20px 80px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav img {
+    width: 200px;
+}
+
+/**
+Hero Section
+**/
+
+.hero {
+    background-image: linear-gradient(rgba(39, 90, 97, 0.85), rgba(39, 90, 97, 0.7)), url('images/camera-hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 90vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.hero-content {
+    max-width: 800px;
+    padding: 0 20px;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 25px;
+    line-height: 1.2;
+}
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+}
