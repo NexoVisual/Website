@@ -116,3 +116,75 @@ Hero Section
         font-size: 2.5rem;
     }
 }
+
+/**
+Burger Menu
+**/
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: white;
+    transition: all 0.3s ease-in-out;
+}
+
+/* RESPONSIVE:*/
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+        z-index: 100;
+    }
+
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .nav-links {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        gap: 0;
+        flex-direction: column;
+        background-color: #275a61;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+        padding-bottom: 20px;
+    }
+
+    .nav-links li {
+        margin: 16px 0;
+    }
+
+    .nav-links.active {
+        left: 0;
+    }
+
+    .nav-container {
+    max-width: 920px;
+    padding: 20px 40px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    color: white;
+}
+}
