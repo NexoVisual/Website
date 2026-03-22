@@ -1,9 +1,9 @@
 /* --- VARIABLES Y RESET --- */
 :root {
-    --color-primary: #d4a5a5; 
-    --color-secondary: #fff0f5; 
+    --color-primary: #75101a; 
+    --color-secondary: #fff; 
     --color-text: #4a4a4a;
-    --color-accent: #9e7f7f;
+    --color-accent: #877010;
     
     /* FUENTES MIXTAS */
     --font-script: 'Pinyon Script', cursive;   /* Para títulos gigantes */
@@ -20,7 +20,7 @@
 body {
     font-family: var(--font-body);
     color: var(--color-text);
-    background-color: #fafafa;
+    background-color: #d9fdff;
     background-image: url('https://www.transparenttextures.com/patterns/cream-paper.png'); 
     line-height: 1.6;
     overflow-x: hidden;
@@ -30,7 +30,7 @@ body {
 .container {
     max-width: 800px;
     margin: 0 auto;
-    background-color: white;
+    background-color: #f3ffff;
     box-shadow: 0 0 20px rgba(0,0,0,0.05);
     overflow: hidden;
 }

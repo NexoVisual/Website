@@ -127,7 +127,7 @@ function enviarWhatsApp() {
     // 3. Configurar el número de teléfono
     // Importante: Debe llevar el código de país (52 para México) sin signos de + ni espacios.
     // Ejemplo: 52 311 123 4567 -> 523111234567
-    const telefono = '523112899943'; // ¡Reemplaza esto con el número del cliente!
+    const telefono = '523891053427'; // ¡Reemplaza esto con el número del cliente!
 
     // 4. Armar el mensaje con formato (%0A es un salto de línea en URLs)
     let texto = `¡Hola! Confirmo mi asistencia a los XV Años.%0A%0A`;
