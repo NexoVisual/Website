@@ -280,13 +280,13 @@ section {
 .three-columns-divider {
     display: flex;
     flex-direction: row;
-    gap: 20px;
+    gap: 10px;
     justify-content: space-between;
     align-items: center;
 }
 
 .three-columns-divider .divider img {
-    height: 240px;
+    height: 190px;
 }
 
 /* Save the Date */
