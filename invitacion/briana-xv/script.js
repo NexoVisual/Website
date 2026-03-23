@@ -109,37 +109,34 @@ END:VCALENDAR`;
 }
 
 function enviarWhatsApp() {
-    // 1. Obtener los valores que el usuario escribió
     const nombre = document.getElementById('nombre').value;
     const pases = document.getElementById('pases').value;
     const mensaje = document.getElementById('mensaje').value;
 
-    // 2. Validar que no envíen el formulario vacío
+    // Validación del nombre
     if (nombre.trim() === '') {
         alert('Por favor, ingresa tu nombre completo.');
-        return; // Detiene la función si no hay nombre
+        return; 
     }
-    if (pases === '') {
-        alert('Por favor, selecciona el número de pases.');
-        return; // Detiene la función si no seleccionó pases
+    
+    // NUEVO: Validación estricta para el número de pases
+    if (pases === '' || isNaN(pases) || pases < 1) {
+        alert('Por favor, ingresa un número de pases válido (mínimo 1).');
+        return; 
     }
 
-    // 3. Configurar el número de teléfono
-    // Importante: Debe llevar el código de país (52 para México) sin signos de + ni espacios.
-    // Ejemplo: 52 311 123 4567 -> 523111234567
-    const telefono = '523891053427'; // ¡Reemplaza esto con el número del cliente!
+    const telefono = '523891053427'; // Recuerda poner el número real aquí
 
-    // 4. Armar el mensaje con formato (%0A es un salto de línea en URLs)
     let texto = `¡Hola! Confirmo mi asistencia a los XV Años.%0A%0A`;
     texto += `*Nombre:* ${nombre}%0A`;
-    texto += `*Asistirán:* ${pases}%0A`;
     
-    // Solo agregamos la sección de mensaje si el usuario escribió algo
+    // Modificamos ligeramente el texto para que suene natural
+    texto += `*Asistirán:* ${pases} persona(s)%0A`;
+    
     if (mensaje.trim() !== '') {
         texto += `*Mensaje:* ${mensaje}`;
     }
 
-    // 5. Crear el link final de WhatsApp y abrirlo en una pestaña nueva
     const url = `https://wa.me/${telefono}?text=${texto}`;
     window.open(url, '_blank');
 }

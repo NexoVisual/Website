@@ -1,9 +1,9 @@
 /* --- VARIABLES Y RESET --- */
 :root {
-    --color-primary: #75101a; 
-    --color-secondary: #fff; 
-    --color-text: #4a4a4a;
-    --color-accent: #877010;
+    --color-primary: #caa868; 
+    --color-secondary: #213148; 
+    --color-text: #fff;
+    --color-accent: #fff9ae;
     
     /* FUENTES MIXTAS */
     --font-script: 'Pinyon Script', cursive;   /* Para títulos gigantes */
@@ -30,7 +30,7 @@ body {
 .container {
     max-width: 800px;
     margin: 0 auto;
-    background-color: #fff;
+    background-color: #213148;
     box-shadow: 0 0 20px rgba(0,0,0,0.05);
     overflow: hidden;
 }
@@ -52,7 +52,7 @@ h2 { font-size: 4rem; margin-top: 15px; }
 /* Títulos Nivel 3 (Informativos y Legibles) - Usa PLAYFAIR */
 h3 {
     font-family: var(--font-serif);
-    color: var(--color-accent);
+    color: var(--color-text);
     font-size: 1.5rem; /* Tamaño legible */
     font-weight: 700;
     letter-spacing: 1px;
@@ -65,7 +65,7 @@ h3 {
     font-size: 1rem;
     letter-spacing: 3px;
     text-transform: uppercase;
-    color: #666;
+    color: #fff;
     margin-bottom: 0;
 }
 
@@ -166,8 +166,8 @@ header {
     left: 0;
     width: 100%;
     height: 150px;
-    background: linear-gradient(to top left, white 49%, transparent 50%),
-                linear-gradient(to top right, white 49%, transparent 50%);
+    background: linear-gradient(to top left, #213148 49%, transparent 50%),
+                linear-gradient(to top right, #213148 49%, transparent 50%);
 }
 
 .main-title {
@@ -215,7 +215,14 @@ section {
 .flower-divider-down {
     width: 100%;
     display: block;
-    margin: -220px auto -20px;
+    margin: -100px auto -20px;
+    opacity: 0.8;
+}
+
+.small-divider {
+    width: 100%;
+    display: block;
+    margin: -30px auto 0;
     opacity: 0.8;
 }
 
@@ -227,12 +234,16 @@ section {
     bottom: -25px;
 }
 
+.icon img {
+    height: 50px;
+}
+
 .quote-section { padding: 40px 20px; font-style: italic; font-size: 1.1rem; font-family: var(--font-serif);}
 .main-photo { width:100%; border-radius:10px; margin-bottom:30px; }
 
 .parents-names h3 { 
     font-size: 1.8rem; 
-    color: #666; 
+    color: #fff; 
     margin-bottom: 5px;
     /* Playfair se ve mejor para nombres largos */
     font-family: var(--font-serif); 
@@ -240,6 +251,18 @@ section {
 }
 
 .parents-role { font-size: 0.8rem; color: #999; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px; font-family: var(--font-body); }
+
+.three-columns-divider {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.three-columns-divider .divider img {
+    height: 240px;
+}
 
 /* Save the Date */
 .save-the-date { background-color: var(--color-secondary); }
@@ -251,6 +274,22 @@ section {
     margin-bottom: 40px;
 }
 .gallery-img { width: 100%; height: auto; border-radius: 5px; }
+
+.gallery-grid .item-grid {
+    font-size: 80px;
+    font-family: var(--font-serif);
+    background-color: white;
+    height: 250px;
+    color: #213148;
+    display: flex;
+    justify-content: center;
+    border-radius: 5px;
+}
+
+.gallery-grid .item-grid p {
+    align-items: center;
+    display: flex;
+}
 
 /* Countdown */
 .countdown-container {
@@ -270,27 +309,43 @@ section {
 .time-box label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px;}
 
 /* Itinerary */
-.timeline-item {
+
+.three-columns-timeline {
     display: flex;
+    gap: 30px;
+    justify-content: space-between;
     flex-direction: column;
+    margin: auto;
     align-items: center;
-    margin-bottom: 40px;
+}
+
+.timeline-item {
+    max-width: 380px;
+    min-width: 335px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 20px;
     position: relative;
+    justify-content: space-around;
+    text-align: left;
 }
-.timeline-item::after { 
-    content: '';
-    width: 1px;
-    height: 30px;
-    background: #ddd;
-    position: absolute;
-    bottom: -35px;
+
+.timeline-item .small-vertical-divider img {
+    height: 150px;
 }
-.timeline-item:last-child::after { display: none; }
+
+.timeline-item .text {
+    width: 185px;
+}
 
 .timeline-icon {
     font-size: 2rem;
     color: var(--color-primary);
     margin-bottom: 10px;
+    min-width: 63px;
+    display: flex;
+    justify-content: center;
 }
 .timeline-time { font-weight: bold; color: var(--color-accent); font-family: var(--font-body); }
 
@@ -302,9 +357,14 @@ section {
     border: 1px solid #eee;
     border-radius: 10px;
 }
+
+.location-card p {
+    color: #999;
+}
+
 /* Aseguramos que el nombre del lugar sea legible con Playfair */
 .location-card h3 { 
-    color: var(--color-primary); 
+    color: var(--color-secondary); 
     font-family: var(--font-serif);
     font-size: 1.6rem;
 }
@@ -331,15 +391,41 @@ section {
 
 /* Footer */
 footer {
-    background-color: #333;
-    color: white;
+    background-color: white;
+    color: #333;
     padding: 40px 20px;
     font-size: 0.8rem;
 }
 
 /* Media Queries */
 @media (min-width: 768px) {
-    .timeline-item { flex-direction: row; justify-content: center; text-align: left; gap: 30px;}
-    .timeline-item::after { display: none; }
-    .main-title { font-size: 8rem; }
+    .timeline-item { 
+        width: 50%;
+        margin: auto;
+        flex-direction: row;
+        text-align: left; gap: 30px;
+        align-items: center;
+    }
+    .timeline-item::after { 
+        display: none; 
+    }
+    .main-title { 
+        font-size: 8rem; 
+    }
+
+    .three-columns-divider .divider img {
+        height: 400px;
+    }
+
+    .gallery-grid .item-grid {
+        font-size: 120px;
+        font-family: var(--font-serif);
+        background-color: white;
+        height: 400px;
+        color: #213148;
+        display: flex;
+        justify-content: center;
+        border-radius: 5px;
+    }
+
 }
