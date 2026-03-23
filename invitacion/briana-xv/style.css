@@ -20,7 +20,7 @@
 body {
     font-family: var(--font-body);
     color: var(--color-text);
-    background-color: #d9fdff;
+    background-color: #ffffff;
     background-image: url('https://www.transparenttextures.com/patterns/cream-paper.png'); 
     line-height: 1.6;
     overflow-x: hidden;
@@ -30,7 +30,7 @@ body {
 .container {
     max-width: 800px;
     margin: 0 auto;
-    background-color: #f3ffff;
+    background-color: #fff;
     box-shadow: 0 0 20px rgba(0,0,0,0.05);
     overflow: hidden;
 }
@@ -201,22 +201,30 @@ header .sub-title {
 
 /* --- SECCIONES --- */
 section {
-    padding: 60px 20px;
+    padding: 20px 20px;
     position: relative;
 }
 
 .flower-divider-up {
     width: 100%;
     display: block;
-    margin: -180px auto 0;
+    margin: -60px auto 0;
     opacity: 0.8;
 }
 
 .flower-divider-down {
     width: 100%;
     display: block;
-    margin: 0px auto -60px;
+    margin: -220px auto -20px;
     opacity: 0.8;
+}
+
+.bella-bestia-divider {
+    width: 20%;
+    display: block;
+    opacity: 1;
+    position: absolute;
+    bottom: -25px;
 }
 
 .quote-section { padding: 40px 20px; font-style: italic; font-size: 1.1rem; font-family: var(--font-serif);}
