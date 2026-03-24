@@ -119,18 +119,17 @@ function enviarWhatsApp() {
         return; 
     }
     
-    // NUEVO: Validación estricta para el número de pases
-    if (pases === '' || isNaN(pases) || pases < 1) {
-        alert('Por favor, ingresa un número de pases válido (mínimo 1).');
+    // NUEVO: Validación simple para el select
+    if (pases === '') {
+        alert('Por favor, selecciona el número de pases.');
         return; 
     }
 
-    const telefono = '523891053427'; // Recuerda poner el número real aquí
+    const telefono = '523891053427'; // Número de WhatsApp
 
     let texto = `¡Hola! Confirmo mi asistencia a los XV Años.%0A%0A`;
     texto += `*Nombre:* ${nombre}%0A`;
     
-    // Modificamos ligeramente el texto para que suene natural
     texto += `*Asistirán:* ${pases} persona(s)%0A`;
     
     if (mensaje.trim() !== '') {

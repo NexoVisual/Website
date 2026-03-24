@@ -162,10 +162,10 @@ header {
     background-position: center;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     color: white;
-    text-shadow: 2px 2px 4px rgba(0,0,0,1);
+    text-shadow: 2px 2px 4px rgba(0,0,0,.5);
 }
 
 .header-overlay {
@@ -189,13 +189,14 @@ header {
 
 .main-title {
     font-size: 6rem; /* Alicia gigante */
-    color: #fff;
+    color: #213148;
     margin-top: 0;
 }
 
 header .sub-title {
-    color: #fff; /* Subtítulo blanco en el header */
+    color: #213148; /* Subtítulo blanco en el header */
     font-weight: 400;
+    padding-top: 10px;
 }
 
 /* --- CONTROL AUDIO --- */
