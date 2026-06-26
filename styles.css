@@ -519,6 +519,14 @@ footer .form .btn-secundary {
         flex-direction: column;
     }
 
+    /**
+    Columns
+    **/
+
+    .columns {
+        flex-direction: column;
+    }
+
 /**
 Carrusel
 **/
