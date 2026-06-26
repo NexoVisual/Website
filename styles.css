@@ -74,6 +74,11 @@ Themes
     color: black
 }
 
+.pure-white-theme {
+    background-color: #fff;
+    color: black;
+}
+
 /**
 Containers
 **/
@@ -84,10 +89,18 @@ Containers
     margin: auto;
 }
 
+.large-container + .large-container {
+    padding-top: 0px;
+}
+
 .small-container {
     max-width: 700px;
     padding: 40px 80px;
     margin: auto;
+}
+
+div + .wysiwyg {
+    margin-top: 20px;
 }
 
 /**
@@ -107,6 +120,61 @@ Buttons
 .btn-primary:hover {
     transform: scale(1.05);
     background-color: #faf3eb;
+}
+
+.btn-secundary {
+    display: inline-block;
+    color: #faf3eb;
+    background-color: #275a61;
+    padding: 5px 12px;
+    border-radius: 50px;
+    font-weight: 700;
+    transition: background-color 0.3s ease;
+    border-style: none;
+    min-width: 140px;
+}
+
+.btn-secundary:hover {
+    background-color: #1b4a50;
+}
+
+.btn-arrow {
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.btn-arrow::after {
+    content: "";
+    display: inline-block;
+    width: 9px;
+    height: 16px;
+    margin-left: 10px;
+    margin-bottom: 1px;
+    vertical-align: middle;
+    background-image: url(images/icon/right-arrow.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: filter 0.3s ease; 
+}
+
+.btn-arrow:hover {
+    color: #275a61;
+}
+
+.btn-arrow:hover::after {
+    filter: invert(30%) sepia(19%) saturate(1324%) hue-rotate(140deg) brightness(93%) contrast(89%);
+}
+
+.blue-theme .btn-arrow:hover {
+    color: #fff;
+}
+
+.blue-theme .btn-arrow::after {
+    filter: brightness(0) saturate(100%) invert(90%) sepia(1%) saturate(2046%) hue-rotate(356deg) brightness(110%) contrast(96%);
+}
+
+.blue-theme .btn-arrow:hover::after {
+    filter: brightness(0) saturate(100%) invert(97%) sepia(0%) saturate(0%) hue-rotate(81deg) brightness(108%) contrast(101%);
 }
 
 /**
@@ -132,6 +200,31 @@ Nav
 
 nav img {
     width: 200px;
+}
+
+/**
+Footer
+**/
+
+footer img {
+    height: 23px;
+    width: auto;
+}
+
+footer .column img {
+    height: 21px;
+    width: auto;
+}
+
+footer .link a {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    transition: color 0.3s ease;
+}
+
+footer .link a:hover {
+    color: #275a61;
 }
 
 /**
@@ -266,6 +359,88 @@ Carrusel
     100% {
         transform: translateX(calc(-40vw * 4)); /* Ultimo numero debe de coincidir con el numero de imagenes*/
     }
+}
+
+/**
+Columns
+**/
+
+.columns {
+    display: flex;
+    gap: 20px;
+}
+
+.column {
+    flex: 1;
+}
+
+/**
+Forms
+**/
+
+.form {
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #fff;
+    filter: drop-shadow(0px 5px 5px #00000066);
+    font-size: 14px;
+    color: #000;
+}
+
+.form form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form form .form-row {
+    display: flex;
+    gap: 10px;
+}
+
+.form form .form-row .form-group {
+    flex: 1;
+}
+
+.form form input, 
+.form form textarea {
+    width: 100%;
+    padding: 5px 10px;
+    background-color: #EDEDED;
+    border: .5px solid #969696;
+    border-radius: 5px;
+    color: #000;
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+.form form input::placeholder, 
+.form form textarea::placeholder {
+    color: #000;
+    opacity: 1;
+}
+
+.form form .btn-secundary {
+    align-self: flex-start; 
+    background-color: #2b595c;
+    color: #ffffff;
+    border: none;
+    border-radius: 25px;
+    padding: 5px 12px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+footer .form {
+    filter: none;
+    padding: 0;
+    margin-top: 10px;
+    background-color: #ffffff00;
+}
+
+footer .form .btn-secundary {
+    width: 100%;
 }
 
 /* RESPONSIVE:*/

@@ -44,3 +44,76 @@ window.addEventListener("scroll", () => {
     
     lastScrollTop = scrollTop;
 });
+
+document.getElementById('newsletter-nexo').addEventListener('submit', function(e) {
+    e.preventDefault(); // Evita que la página se recargue por completo
+    
+    const boton = document.getElementById('btn-suscribirse');
+    const textoOriginal = boton.textContent;
+    
+    // Cambia el estado del botón mientras procesa
+    boton.textContent = 'Suscribiéndote...';
+    boton.disabled = true;
+
+    // REEMPLAZA ESTA URL CON LA QUE COPIASTE EN EL PASO 3
+    const urlScript = 'https://script.google.com/macros/s/AKfycbwTUYrlUaVUfgvyrHhpzGofqOOdnTVqxAqfqy6efeJphsE3hO2BUw29fhUKmHtCT6B4/exec'; 
+
+    fetch(urlScript, {
+        method: 'POST',
+        mode: 'no-cors', // Evita problemas de restricciones CORS de forma sencilla
+        body: new FormData(this)
+    })
+    .then(() => {
+        alert('¡Te has suscrito al newsletter exitosamente!');
+        this.reset(); // Limpia los campos del formulario
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Hubo un problema al registrar tu suscripción. Inténtalo de nuevo.');
+    })
+    .finally(() => {
+        // Restaura el botón a su estado original
+        boton.textContent = textoOriginal;
+        boton.disabled = false;
+    });
+});
+
+document.getElementById('contacto-nexo').addEventListener('submit', function(e) {
+    e.preventDefault(); // Evita que la página se recargue o redirija
+    
+    // Buscamos el botón de enviar dentro de ESTE formulario
+    const boton = this.querySelector('button[type="submit"]');
+    const textoOriginal = boton.textContent;
+    
+    // Cambiamos el texto para dar feedback al usuario
+    boton.textContent = 'Enviando...';
+    boton.disabled = true;
+
+    // Tomamos la URL del action del formulario
+    const urlAction = this.action; 
+
+    fetch(urlAction, {
+        method: 'POST',
+        body: new FormData(this),
+        headers: {
+            'Accept': 'application/json' // Le dice a FormSubmit que procesaremos la respuesta aquí mismo
+        }
+    })
+    .then(response => {
+        if (response.ok) {
+            alert('¡Tu mensaje ha sido enviado con éxito! Nos pondremos en contacto pronto.');
+            this.reset(); // Limpia el formulario
+        } else {
+            alert('Hubo un problema al enviar el mensaje. Por favor, inténtalo de nuevo.');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Ocurrió un error de red. Inténtalo de nuevo más tarde.');
+    })
+    .finally(() => {
+        // Devolvemos el botón a su estado original
+        boton.textContent = textoOriginal;
+        boton.disabled = false;
+    });
+});

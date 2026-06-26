@@ -3,6 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Nexo Visual">
+    <meta property="og:description" content="Conecta con tu historia. Hazla Visual.>
+    <meta property="og:image" content="https://nexovisual.com.mx/invitacion/briana-xv/images/xv-briana-misa-170.jpg">
+    <meta property="og:url" content="https://nexovisual.com.mx/">
+    <meta property="og:type" content="website">
     <title>Nexo Visual</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -107,8 +112,8 @@
                 <div class="large-container">
                     <h2>Servicios</h2>
                     <div class="cards">
-                        <div class="cards-item large white-theme">
-                            <img src="https://images.pexels.com/photos/4031006/pexels-photo-4031006.jpeg" alt="">
+                        <div class="cards-item large pure-white-theme">
+                            <img src="images/camera-fujifilm.jpg" alt="Cámara Fujifilm.">
                             <div class="text">
                                 <h3>Fotografía con Intención</h3>
                                 <p>Capturamos la esencia de marcas y personas de forma honesta. 
@@ -116,8 +121,8 @@
                                     creativos, buscamos imágenes que se sientan humanas y reales.</p>
                             </div>
                         </div>
-                        <div class="cards-item large white-theme">
-                            <img src="https://images.pexels.com/photos/3878617/pexels-photo-3878617.jpeg" alt="">
+                        <div class="cards-item large pure-white-theme">
+                            <img src="images/ronin-gimbal.jpeg" alt="Estabilizador Ronin.">
                             <div class="text">
                                 <h3>Video y Edición</h3>
                                 <p>Historias con movimiento que transmiten algo real. 
@@ -126,8 +131,8 @@
                                     hasta la entrega.</p>
                             </div>
                         </div>
-                        <div class="cards-item large white-theme">
-                            <img src="https://images.pexels.com/photos/62689/pexels-photo-62689.jpeg" alt="">
+                        <div class="cards-item large pure-white-theme">
+                            <img src="images/designer-desk.jpeg" alt="Escritorio de diseñador.">
                             <div class="text">
                                 <h3>Diseño Visual</h3>
                                 <p>Creamos identidades que comunican con claridad. Te ayudamos a 
@@ -136,14 +141,111 @@
                             </div>
                         </div>
                     </div>
+                    <div class="wysiwyg">
+                        <h3>¿Necesitas conocer más?</h3>
+                        <p>
+                            Conoce a fondo nuestra metodología de trabajo y cómo adaptamos cada disciplina a las necesidades reales de tu proyecto.
+                        </p>
+                        <p>
+                            <a href="/servicios" class="btn-arrow">Ver Todos los Servicios</a>
+                        </p>
+                    </div> <!-- wysiwyg -->
                 </div>
             </div>
         </section> <!-- Acerca de Nosotros -->
+        <section id="Contáctanos">
+            <div class="blue-theme">
+                <div class="large-container">
+                    <div class="columns">
+                        <div class="column">
+                            <div class="wysiwyg">
+                                <h2>Contáctanos</h2>
+                                <p>
+                                    ¿Necesitas contactarnos? Puedes rellenar el formulario para enviarnos un mensaje directo o si lo prefieres, 
+                                    puedes contactarnos directa y personalmente por nuestros distintos medios de comunicación abajo.
+                                </p>
+                                <p>
+                                    <a href="/contactanos" class="btn-arrow">Más Información</a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="form">
+                                <form id="contacto-nexo" action="https://formsubmit.co/nexovisual.contact@gmail.com" method="POST">
+                                    <input type="hidden" name="_subject" value="Nuevo mensaje de contacto - Nexo Visual">
+                                    <input type="hidden" name="_captcha" value="false">
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="nombre"></label>
+                                            <input type="text" id="nombre" name="nombre" required placeholder="Nombre*">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="apellido"></label>
+                                            <input type="text" id="apellido" name="apellido" required placeholder="Apellido*">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email"></label>
+                                        <input type="email" id="email" name="email" required placeholder="Email*">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="mensaje"></label>
+                                        <textarea id="mensaje" name="mensaje" rows="4" required placeholder="¿En qué podemos ayudarte?"></textarea>
+                                    </div>
+                                    <button type="submit" id="btn-enviar" class="btn-secundary">Enviar</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section> <!-- Contáctanos -->
     </main>
     <footer>
-        <p>&copy; Nexo Visual</p>
+        <div class="white-theme">
+            <div class="large-container">
+                <img src="images/logo-blue.svg" alt="Nexo Visual">
+            </div>
+            <div class="large-container">
+                <div class="columns">
+                    <div class="column">
+                        <p><strong>Contacto</strong></p>
+                        <p class="link"><a href="tel:3112899943"><img src="images/icon/phone.svg" alt="">311 289 9943</a></p>
+                        <p class="link"><a href="https://wa.me/3112684020" target="_blank"><img src="images/icon/whatsapp.svg" alt="">311 268 4020</a></p>
+                    </div>
+                    <div class="column">
+                        <p><strong>Redes Sociales</strong></p>
+                        <p class="link"><a href="https://www.facebook.com/p/Nexo-Visual-61577806581595/" target="_blank"><img src="images/icon/facebook.svg" alt="">Nexo Visual</a></p>
+                        <p class="link"><a href="https://www.instagram.com/nexovisual_studio" target="_blank"><img src="images/icon/instagram.svg" alt="">nexovisual_studio</a></p>
+                    </div>
+                    <div class="column">
+                        <p><strong>Enlaces rápidos</strong></p>
+                        <p class="link"><a href="documents/NexoVisual-Portfolio.pdf" target="_blank">Portafolio</a></p>
+                        <p class="link"><a href="/terminos-y-condiciones">Términos y Condiciones</a></p>
+                        <p class="link"><a href="/faqs">FAQs</a></p>
+                        <p class="link"><a href="/aviso-de-privacidad">Aviso de Privacidad</a></p>
+                    </div>
+                    <div class="column">
+                        <p><strong>Nuestro Newsletter</strong></p>
+                        <div class="form">
+                            <form id="newsletter-nexo" action="#" method="POST">
+                                <div class="form-group">
+                                    <label for="nombre"></label>
+                                    <input type="text" id="nombre" name="nombre" required placeholder="Nombre*">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email"></label>
+                                    <input type="email" id="email" name="email" required placeholder="Email*">
+                                </div>
+                                <button type="submit" id="btn-suscribirse" class="btn-secundary">Suscribirse</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </footer>
-
     <script src="script.js"></script>
 </body>
 </html>
