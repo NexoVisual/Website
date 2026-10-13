@@ -14,7 +14,7 @@
     <style>
         /* --- VARIABLES Y RESET --- */
         :root {
-            --color-blue: #154c8a; /* Solucionado el error de la variable */
+            --color-blue: #154c8a; 
             --color-blue-light: #255a9e;
             --color-silver: #8c9398;
             --color-gold: #c2a362;
@@ -80,16 +80,15 @@
             font-family: var(--font-script); font-size: 6.5rem; line-height: 1.1; margin-bottom: 20px; text-shadow: 2px 4px 6px rgba(0,0,0,0.6);
         }
 
-        /* --- NUEVO: BOTÓN DE MÚSICA (GLASSMORPHISM) --- */
+        /* --- BOTÓN DE MÚSICA (GLASSMORPHISM) --- */
         .music-btn {
             margin-top: 30px;
             width: 70px;
             height: 70px;
             border-radius: 50%;
-            /* Efecto Cristal Líquido (iOS Glass) */
             background: rgba(255, 255, 255, 0.15);
             backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px); /* Soporte para Safari */
+            -webkit-backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.4);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
             color: white;
@@ -101,21 +100,12 @@
             transition: all 0.3s ease;
             position: relative;
             z-index: 10;
-            /* Animación de pulso */
             animation: pulse-glow 2s infinite;
         }
 
-        .music-btn:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: scale(1.05);
-        }
-
-        .music-btn i {
-            margin-left: 4px; /* Ajuste óptico para que el 'play' se vea centrado */
-        }
-        .music-btn.playing i {
-            margin-left: 0; /* Centrado normal cuando es el botón de 'pause' */
-        }
+        .music-btn:hover { background: rgba(255, 255, 255, 0.3); transform: scale(1.05); }
+        .music-btn i { margin-left: 4px; }
+        .music-btn.playing i { margin-left: 0; }
 
         @keyframes pulse-glow {
             0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.5); }
@@ -146,6 +136,8 @@
             padding: 40px 30px; border-radius: 8px; box-shadow: 0 -5px 15px rgba(0,0,0,0.15);
             text-align: center; color: var(--color-blue); transform: translateY(60px); opacity: 0;
         }
+        
+        /* Animación por defecto (Escritorio) */
         .letter-paper.pull-out {
             animation: pullOutLetter 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
             animation-delay: 0.3s;
@@ -155,6 +147,14 @@
             30% { opacity: 1; }
             100% { transform: translateY(-160px); opacity: 1; }
         }
+
+        /* Animación específica para móvil (Sube menos) */
+        @keyframes pullOutLetterMobile {
+            0% { transform: translateY(60px); opacity: 0; }
+            30% { opacity: 1; }
+            100% { transform: translateY(-90px); opacity: 1; }
+        }
+
         .letter-paper p { font-size: 0.95rem; margin-bottom: 15px; }
         .letter-paper strong { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; color: var(--color-blue); }
         .letter-paper h3 { font-family: var(--font-title); font-size: 1.1rem; margin: 5px 0 15px 0; font-weight: 600; }
@@ -223,7 +223,6 @@
             width: 50px; height: auto; margin-bottom: 15px; filter: drop-shadow(2px 3px 4px rgba(0,0,0,0.15));
             animation: float 3s ease-in-out infinite;
         }
-        @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-10px); } 100% { transform: translateY(0px); } }
         .dress-title { font-family: var(--font-title); font-size: 1.8rem; color: var(--color-silver); letter-spacing: 2px; margin-bottom: 10px; }
         .dress-subtitle { font-family: var(--font-title); font-size: 1.5rem; color: var(--color-blue-light); letter-spacing: 3px; margin-bottom: 30px; }
         .clothes-silhouettes { font-size: 6rem; color: #1a1a1a; display: flex; justify-content: center; gap: 20px; margin-bottom: 30px; }
@@ -253,19 +252,46 @@
 
         .rsvp-section { background-color: var(--color-blue-light); color: white; padding: 80px 20px; text-align: center; }
 
+        /* =========================================
+           RESPONSIVE (AJUSTES PARA CELULAR)
+           ========================================= */
         @media (max-width: 768px) {
             .hero-title { font-size: 4.5rem; }
             .countdown-container { flex-wrap: wrap; }
-            .envelope-scene { height: 480px; } 
             .gift-options-row { flex-direction: column; gap: 30px; }
             .bg-xv { font-size: 12rem; } 
+            
+            /* --- FIX DE LA CARTA EN MÓVIL --- */
+            .envelope-scene { 
+                margin-top: -50px; /* Reduce drásticamente el margen negativo para no pisar el nombre */
+                height: 460px; /* Contenedor más pequeño */
+            }
+            
+            .envelope-back { height: 280px; }
+            .envelope-front { height: 320px; }
+            
+            .letter-paper {
+                padding: 25px 15px; /* Menos espacio interior en los bordes */
+                width: 95%; /* Que ocupe un poco más del ancho en móviles */
+            }
+            
+            /* Reducción de tamaños de fuente internos */
+            .letter-paper p { font-size: 0.85rem; margin-bottom: 10px; }
+            .letter-paper strong { font-size: 0.8rem; }
+            .letter-paper h3 { font-size: 0.95rem; margin: 5px 0 10px 0; }
+            .letter-date { margin-top: 15px; font-size: 1.1rem; }
+            
+            /* Asigna la animación móvil a la carta */
+            .letter-paper.pull-out {
+                animation: pullOutLetterMobile 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+                animation-delay: 0.3s;
+            }
         }
     </style>
 </head>
 <body>
 
     <!-- AUDIO OCULTO -->
-    <!-- PLACEHOLDER CANCIÓN: Reemplaza el src por el enlace a tu MP3 local (ej. "audio/cancion.mp3") -->
     <audio id="bg-music" loop>
         <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
     </audio>
@@ -407,13 +433,13 @@
                 musicBtn.classList.add('playing');
                 musicIcon.classList.remove('fa-play');
                 musicIcon.classList.add('fa-pause');
-                musicBtn.style.animation = 'none'; // Detiene la onda expansiva al reproducir
+                musicBtn.style.animation = 'none'; 
             } else {
                 bgMusic.pause();
                 musicBtn.classList.remove('playing');
                 musicIcon.classList.remove('fa-pause');
                 musicIcon.classList.add('fa-play');
-                musicBtn.style.animation = 'pulse-glow 2s infinite'; // Vuelve a animar si se pausa
+                musicBtn.style.animation = 'pulse-glow 2s infinite'; 
             }
         });
 
