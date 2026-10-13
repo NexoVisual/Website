@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis XV Años - Sofía González</title>
+    <!-- Fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@400;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Iconos FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- VARIABLES Y RESET --- */
+        :root {
+            --color-blue: #154c8a; /* Solucionado el error de la variable */
+            --color-blue-light: #255a9e;
+            --color-silver: #8c9398;
+            --color-gold: #c2a362;
+            --color-white: #f8f9fa;
+            --color-text: #333333;
+            --font-script: 'Alex Brush', cursive; 
+            --font-title: 'Cinzel', serif;
+            --font-text: 'Montserrat', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-text);
+            background-color: var(--color-white);
+            color: var(--color-text);
+            line-height: 1.6;
+            overflow-x: hidden; 
+        }
+        
+        /* --- ANIMACIONES GENERALES --- */
+        .reveal {
+            opacity: 0; transform: translateY(40px);
+            transition: all 1.2s cubic-bezier(0.25, 1, 0.5, 1); 
+        }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .delay-100 { transition-delay: 0.1s; }
+        .delay-200 { transition-delay: 0.2s; }
+
+        /* --- SECCIÓN HERO --- */
+        .hero {
+            position: relative; height: 100vh;
+            background-image: url(images/072\ copia.jpg);
+            background-size: cover; background-position: center;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        .hero::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.4);
+        }
+        .hero-content { position: relative; z-index: 1; text-align: center; }
+
+        /* Estilos del texto curvo y el XV de fondo */
+        .curved-text-container {
+            position: relative; width: 320px; height: 130px; margin: 0 auto;
+        }
+        .svg-curved-text { width: 100%; height: 100%; overflow: visible; }
+        .svg-curved-text text {
+            font-family: var(--font-text); font-size: 1.1rem; letter-spacing: 8px; 
+            fill: white; text-transform: uppercase; font-weight: 500; text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+        .hero-butterfly {
+            position: absolute; top: 45px; left: 50%; transform: translateX(-50%); width: 80px;
+            animation: float 3s ease-in-out infinite; filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.3));
+        }
+        .name-container { position: relative; margin-top: -10px; z-index: 2; }
+        .bg-xv {
+            position: absolute; top: 55%; left: 50%; transform: translate(-50%, -50%);
+            font-family: var(--font-title); font-size: 16rem; color: rgba(255, 255, 255, 0.35); 
+            z-index: -1; line-height: 1; pointer-events: none; text-shadow: none;
+        }
+        .hero-title { 
+            font-family: var(--font-script); font-size: 6.5rem; line-height: 1.1; margin-bottom: 20px; text-shadow: 2px 4px 6px rgba(0,0,0,0.6);
+        }
+
+        /* --- NUEVO: BOTÓN DE MÚSICA (GLASSMORPHISM) --- */
+        .music-btn {
+            margin-top: 30px;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            /* Efecto Cristal Líquido (iOS Glass) */
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px); /* Soporte para Safari */
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 10;
+            /* Animación de pulso */
+            animation: pulse-glow 2s infinite;
+        }
+
+        .music-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.05);
+        }
+
+        .music-btn i {
+            margin-left: 4px; /* Ajuste óptico para que el 'play' se vea centrado */
+        }
+        .music-btn.playing i {
+            margin-left: 0; /* Centrado normal cuando es el botón de 'pause' */
+        }
+
+        @keyframes pulse-glow {
+            0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.5); }
+            70% { box-shadow: 0 0 0 20px rgba(255, 255, 255, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+        }
+
+        /* --- SECCIÓN AZUL (EVENTOS) --- */
+        .section-blue { background-color: var(--color-blue); color: white; padding: 80px 20px; position: relative; }
+
+        /* =========================================
+           ANIMACIÓN DE EXTRACCIÓN DE CARTA 
+           ========================================= */
+        .envelope-scene {
+            position: relative; max-width: 600px; height: 550px; 
+            margin: -160px auto 60px auto; z-index: 2; display: flex; justify-content: center;
+        }
+        .envelope-back {
+            position: absolute; bottom: 0; width: 100%; height: 350px; z-index: 1;
+            background-image: url('https://images.unsplash.com/photo-1600861194802-a2b11076b1f2?q=80&w=1000&auto=format&fit=crop'); 
+            background-size: cover; background-position: center;
+            border-radius: 5px; box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+        .letter-paper {
+            position: absolute; bottom: 10px; width: 90%; 
+            background: linear-gradient(to bottom, #fdfdfd, #f4f8fc); z-index: 2;
+            padding: 40px 30px; border-radius: 8px; box-shadow: 0 -5px 15px rgba(0,0,0,0.15);
+            text-align: center; color: var(--color-blue); transform: translateY(60px); opacity: 0;
+        }
+        .letter-paper.pull-out {
+            animation: pullOutLetter 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            animation-delay: 0.3s;
+        }
+        @keyframes pullOutLetter {
+            0% { transform: translateY(80px); opacity: 0; }
+            30% { opacity: 1; }
+            100% { transform: translateY(-160px); opacity: 1; }
+        }
+        .letter-paper p { font-size: 0.95rem; margin-bottom: 15px; }
+        .letter-paper strong { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; color: var(--color-blue); }
+        .letter-paper h3 { font-family: var(--font-title); font-size: 1.1rem; margin: 5px 0 15px 0; font-weight: 600; }
+        .letter-date { margin-top: 25px; font-family: var(--font-title); font-size: 1.3rem; color: var(--color-blue); font-weight: 600; }
+        .envelope-front {
+            position: absolute; bottom: 0; width: 100%; height: 380px; z-index: 3;
+            background-image: url('https://www.transparenttextures.com/patterns/cream-paper.png'); 
+            background-color: rgba(245, 245, 245, 0.95); 
+            clip-path: polygon(0 40%, 50% 60%, 100% 40%, 100% 100%, 0 100%);
+            border-radius: 0 0 5px 5px; pointer-events: none; 
+        }
+        .envelope-front::before {
+            content: '\f5eb'; font-family: 'Font Awesome 6 Free'; font-weight: 900;
+            position: absolute; top: 55%; left: 50%; transform: translate(-50%, -50%);
+            font-size: 3rem; color: #d1b272; filter: drop-shadow(0 4px 4px rgba(0,0,0,0.2));
+        }
+
+        /* --- CALENDARIO, CONTADOR, EVENTOS --- */
+        .calendar-container { max-width: 350px; margin: 0 auto 60px auto; text-align: center; }
+        .calendar-title { font-family: var(--font-title); font-size: 2.2rem; letter-spacing: 4px; margin-bottom: 30px; font-weight: 400; }
+        .calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 15px 5px; font-family: var(--font-text); font-size: 1rem; }
+        .day-name { font-weight: 600; margin-bottom: 10px; }
+        .day { display: flex; justify-content: center; align-items: center; height: 35px; width: 35px; margin: 0 auto; }
+        .highlight-day { position: relative; color: var(--color-blue); font-weight: 600; z-index: 1; }
+        .highlight-day::before {
+            content: '\f004'; font-family: 'Font Awesome 6 Free'; font-weight: 900; position: absolute; font-size: 42px; 
+            color: rgba(255, 255, 255, 0.85); z-index: -1; top: 50%; left: 50%; transform: translate(-50%, -48%);
+        }
+        .countdown-container { display: flex; justify-content: center; gap: 25px; margin-bottom: 60px; }
+        .countdown-item { text-align: center; }
+        .countdown-number { font-family: var(--font-title); font-size: 2.5rem; font-weight: 600; display: block; }
+        .countdown-label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; }
+        .events-container { max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 60px; }
+        .event-box { text-align: center; }
+        .event-box i { font-size: 2.5rem; margin-bottom: 15px; color: var(--color-gold); }
+        .event-box h2 { font-family: var(--font-title); font-size: 1.8rem; margin-bottom: 10px; }
+        .event-box h3 { font-family: var(--font-text); font-weight: 400; font-size: 1.2rem; margin-bottom: 5px; }
+        .event-time { font-weight: 600; margin-bottom: 10px; }
+        .event-address { font-size: 0.9rem; margin-bottom: 20px; }
+        .btn {
+            display: inline-block; padding: 12px 30px; background-color: transparent; color: white;
+            text-decoration: none; font-family: var(--font-title); border: 1px solid white;
+            border-radius: 30px; transition: all 0.3s ease; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px; cursor: pointer;
+        }
+        .btn:hover { background-color: white; color: var(--color-blue); }
+
+        /* --- FOTO INTERMEDIA --- */
+        .photo-divider {
+            width: 100%; 
+            height: 80vh; 
+            background-image: url(images/106\ copia.jpg);
+            background-size: cover; 
+            background-position: center; 
+            background-attachment: fixed; 
+        }
+
+        /* =========================================
+           SECCIONES: VESTIMENTA Y REGALOS 
+           ========================================= */
+        .dress-code-section {
+            background-color: #f2f6fa;
+            background-image: url('https://www.transparenttextures.com/patterns/stucco.png');
+            padding: 80px 20px; text-align: center;
+        }
+        .butterfly-icon {
+            width: 50px; height: auto; margin-bottom: 15px; filter: drop-shadow(2px 3px 4px rgba(0,0,0,0.15));
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-10px); } 100% { transform: translateY(0px); } }
+        .dress-title { font-family: var(--font-title); font-size: 1.8rem; color: var(--color-silver); letter-spacing: 2px; margin-bottom: 10px; }
+        .dress-subtitle { font-family: var(--font-title); font-size: 1.5rem; color: var(--color-blue-light); letter-spacing: 3px; margin-bottom: 30px; }
+        .clothes-silhouettes { font-size: 6rem; color: #1a1a1a; display: flex; justify-content: center; gap: 20px; margin-bottom: 30px; }
+        .dress-text { color: var(--color-blue); font-size: 1rem; max-width: 400px; margin: 0 auto; font-weight: 500; }
+
+        .gifts-section {
+            background-color: #123e75; background-image: url('https://www.transparenttextures.com/patterns/asfalt-light.png');
+            padding: 100px 20px 80px 20px; text-align: center;
+        }
+        .gift-framed-card {
+            position: relative; max-width: 550px; margin: 0 auto; background: linear-gradient(135deg, #e6f1f9 0%, #cce1f2 100%);
+            padding: 60px 40px 40px 40px; border: 6px solid #b3b9be; box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+        }
+        .silver-seal {
+            position: absolute; top: -28px; left: 50%; transform: translateX(-50%); width: 56px; height: 56px;
+            background: radial-gradient(circle, #e6e6e6 20%, #999999 100%); border-radius: 50%;
+            box-shadow: inset 0 0 5px rgba(255,255,255,0.9), 0 5px 10px rgba(0,0,0,0.5); display: flex; justify-content: center; align-items: center;
+            color: #555; font-size: 1.5rem; border: 2px solid #dfdfdf; z-index: 2;
+        }
+        .gift-title { font-family: var(--font-title); font-size: 1.8rem; color: var(--color-silver); margin-bottom: 20px; letter-spacing: 1px; }
+        .gift-text { color: var(--color-blue); font-size: 0.95rem; margin-bottom: 30px; font-weight: 500; }
+        .gift-options-row { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px; }
+        .gift-option { display: flex; flex-direction: column; align-items: center; color: var(--color-blue); transition: transform 0.3s ease; }
+        .gift-option:hover { transform: translateY(-8px); }
+        .gift-option i { font-size: 3.5rem; margin-bottom: 10px; }
+        .gift-option span { font-family: var(--font-title); font-size: 0.9rem; font-weight: 600; }
+
+        .rsvp-section { background-color: var(--color-blue-light); color: white; padding: 80px 20px; text-align: center; }
+
+        @media (max-width: 768px) {
+            .hero-title { font-size: 4.5rem; }
+            .countdown-container { flex-wrap: wrap; }
+            .envelope-scene { height: 480px; } 
+            .gift-options-row { flex-direction: column; gap: 30px; }
+            .bg-xv { font-size: 12rem; } 
+        }
+    </style>
+</head>
+<body>
+
+    <!-- AUDIO OCULTO -->
+    <!-- PLACEHOLDER CANCIÓN: Reemplaza el src por el enlace a tu MP3 local (ej. "audio/cancion.mp3") -->
+    <audio id="bg-music" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
+
+    <header class="hero">
+        <div class="hero-content reveal">
+            
+            <div class="curved-text-container">
+                <svg viewBox="0 0 300 120" class="svg-curved-text">
+                    <path id="curve" d="M 20,100 A 130,130 0 0,1 280,100" fill="transparent" />
+                    <text><textPath href="#curve" startOffset="50%" text-anchor="middle">MIS XV AÑOS</textPath></text>
+                </svg>
+                <img src="https://marqstudiocompany.com/camila-yorley/_assets/media/ce4a0409a9a4c1cab3098edcc2cda602.png" alt="Mariposa" class="hero-butterfly">
+            </div>
+
+            <div class="name-container">
+                <span class="bg-xv">XV</span>
+                <h1 class="hero-title">Sofía<br>González</h1>
+                
+                <!-- BOTÓN DE MÚSICA -->
+                <button class="music-btn" id="music-toggle" aria-label="Reproducir música">
+                    <i class="fa-solid fa-play"></i>
+                </button>
+            </div>
+
+        </div>
+    </header>
+
+    <section class="section-blue">
+        <div class="envelope-scene trigger-pull">
+            <div class="envelope-back"></div>
+            <div class="letter-paper" id="animated-letter">
+                <p>Con el amor y la presencia que me brindan, los invito a compartir conmigo este día tan especial.</p>
+                <p style="margin-top: 20px;"><strong>Con la bendición de mis padres:</strong></p>
+                <h3>MARIANO GONZÁLEZ PÉREZ</h3>
+                <h3>NANCY VANESSA ALVARADO GUZMÁN</h3>
+                <p style="margin-top: 25px;"><strong>Mis padrinos:</strong></p>
+                <h3>LUIS ALBERTO ZEPEDA SAAVEDRA</h3>
+                <h3>MARTHA LORENA RAMÍREZ SANDOVAL</h3>
+                <div class="letter-date">SÁBADO 21 DE NOVIEMBRE DE 2026</div>
+            </div>
+            <div class="envelope-front"></div>
+        </div>
+
+        <div class="calendar-container reveal delay-100">
+            <h2 class="calendar-title">NOVIEMBRE</h2>
+            <div class="calendar-grid">
+                <div class="day-name">D</div><div class="day-name">L</div><div class="day-name">M</div><div class="day-name">M</div><div class="day-name">J</div><div class="day-name">V</div><div class="day-name">S</div>
+                <div class="day">1</div><div class="day">2</div><div class="day">3</div><div class="day">4</div><div class="day">5</div><div class="day">6</div><div class="day">7</div>
+                <div class="day">8</div><div class="day">9</div><div class="day">10</div><div class="day">11</div><div class="day">12</div><div class="day">13</div><div class="day">14</div>
+                <div class="day">15</div><div class="day">16</div><div class="day">17</div><div class="day">18</div><div class="day">19</div><div class="day">20</div>
+                <div class="day highlight-day">21</div>
+                <div class="day">22</div><div class="day">23</div><div class="day">24</div><div class="day">25</div><div class="day">26</div><div class="day">27</div><div class="day">28</div>
+                <div class="day">29</div><div class="day">30</div><div class="day"></div><div class="day"></div><div class="day"></div><div class="day"></div><div class="day"></div>
+            </div>
+        </div>
+
+        <div class="countdown-container reveal delay-200">
+            <div class="countdown-item"><span class="countdown-number" id="days">00</span><span class="countdown-label">Días</span></div>
+            <div class="countdown-item"><span class="countdown-number" id="hours">00</span><span class="countdown-label">Horas</span></div>
+            <div class="countdown-item"><span class="countdown-number" id="minutes">00</span><span class="countdown-label">Minutos</span></div>
+            <div class="countdown-item"><span class="countdown-number" id="seconds">00</span><span class="countdown-label">Segundos</span></div>
+        </div>
+
+        <div class="events-container">
+            <div class="event-box reveal">
+                <i class="fa-solid fa-church"></i>
+                <h2>CEREMONIA</h2>
+                <h3>Parroquia La Inmaculada Concepción</h3>
+                <p class="event-time">02:00 PM</p>
+                <p class="event-address">Calle Betania, Col. Hermosa Provincia</p>
+                <a href="#" class="btn" target="_blank">Ver Mapa</a>
+            </div>
+            <div class="event-box reveal delay-100">
+                <i class="fa-solid fa-champagne-glasses"></i>
+                <h2>RECEPCIÓN</h2>
+                <h3>Campestre Alegría</h3>
+                <p class="event-time">04:00 PM</p>
+                <p class="event-address">Calle Churubusco #36 Ote., Col. San Jose</p>
+                <a href="#" class="btn" target="_blank">Ver Mapa</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="photo-divider reveal"></div>
+
+    <section class="dress-code-section">
+        <div class="reveal">
+            <img src="https://marqstudiocompany.com/camila-yorley/_assets/media/ce4a0409a9a4c1cab3098edcc2cda602.png" alt="Mariposa" class="butterfly-icon">
+            <h2 class="dress-title">VESTIMENTA</h2>
+            <h3 class="dress-subtitle">FORMAL</h3>
+            
+            <div class="clothes-silhouettes reveal delay-100">
+                <i class="fa-solid fa-person-dress"></i>
+                <i class="fa-solid fa-user-tie"></i>
+            </div>
+            
+            <p class="dress-text reveal delay-200">Se reserva el color azul, plata y rojo para la quinceañera.</p>
+        </div>
+    </section>
+
+    <section class="gifts-section">
+        <div class="gift-framed-card reveal">
+            <div class="silver-seal">
+                <i class="fa-brands fa-pagelines"></i>
+            </div>
+
+            <h2 class="gift-title">MESA DE REGALO</h2>
+            <p class="gift-text">Tu compañía es mi mejor regalo, pero si deseas hacerme un obsequio tendré las siguientes sugerencias:</p>
+            
+            <div class="gift-options-row">
+                <div class="gift-option reveal delay-100">
+                    <i class="fa-solid fa-envelope-open-text"></i>
+                    <span>"Lluvia de sobres"</span>
+                </div>
+                <div class="gift-option reveal delay-200">
+                    <i class="fa-solid fa-gift"></i>
+                    <span>Regalo en "físico"</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="rsvp-section reveal">
+        <h2 class="section-title" style="color: white;">CONFIRMACIÓN</h2>
+        <p style="margin-bottom: 20px;">Por favor, confirma tu asistencia para considerar tu lugar en este día tan especial.</p>
+        <a href="#" class="btn" style="background-color: white; color: var(--color-blue-light); border: none;">Confirmar Asistencia</a>
+    </section>
+
+    <script>
+        // SCRIPT DEL REPRODUCTOR DE MÚSICA
+        const musicBtn = document.getElementById('music-toggle');
+        const bgMusic = document.getElementById('bg-music');
+        const musicIcon = musicBtn.querySelector('i');
+
+        musicBtn.addEventListener('click', () => {
+            if (bgMusic.paused) {
+                bgMusic.play();
+                musicBtn.classList.add('playing');
+                musicIcon.classList.remove('fa-play');
+                musicIcon.classList.add('fa-pause');
+                musicBtn.style.animation = 'none'; // Detiene la onda expansiva al reproducir
+            } else {
+                bgMusic.pause();
+                musicBtn.classList.remove('playing');
+                musicIcon.classList.remove('fa-pause');
+                musicIcon.classList.add('fa-play');
+                musicBtn.style.animation = 'pulse-glow 2s infinite'; // Vuelve a animar si se pausa
+            }
+        });
+
+        // SCRIPT DEL CONTADOR
+        const countDownDate = new Date("Nov 21, 2026 14:00:00").getTime();
+        const x = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = countDownDate - now;
+            document.getElementById("days").innerHTML = Math.floor(distance / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
+            document.getElementById("hours").innerHTML = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
+            document.getElementById("minutes").innerHTML = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+            document.getElementById("seconds").innerHTML = Math.floor((distance % (1000 * 60)) / 1000).toString().padStart(2, '0');
+            if (distance < 0) { clearInterval(x); }
+        }, 1000);
+
+        // SCRIPT DE ANIMACIONES AL SCROLL
+        function revealOnScroll() {
+            const reveals = document.querySelectorAll('.reveal');
+            const envelopeTrigger = document.querySelector('.trigger-pull');
+            const letter = document.getElementById('animated-letter');
+
+            const observerOptions = { root: null, rootMargin: '0px', threshold: 0.15 };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && entry.target.classList.contains('reveal')) {
+                        entry.target.classList.add('active');
+                    }
+                    if (entry.isIntersecting && entry.target.classList.contains('trigger-pull')) {
+                        letter.classList.add('pull-out');
+                    }
+                });
+            }, observerOptions);
+
+            reveals.forEach(reveal => observer.observe(reveal));
+            if(envelopeTrigger) observer.observe(envelopeTrigger);
+        }
+
+        document.addEventListener('DOMContentLoaded', revealOnScroll);
+    </script>
+</body>
+</html>
