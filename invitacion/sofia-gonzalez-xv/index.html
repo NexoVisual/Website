@@ -280,7 +280,7 @@
         .gift-option span { font-family: var(--font-title); font-size: 0.9rem; font-weight: 600; }
 
         /* =========================================
-           NUEVA SECCIÓN: ITINERARIO 
+           SECCIÓN: ITINERARIO 
            ========================================= */
         .itinerary-section {
             background-color: #fbf2e6;
@@ -378,6 +378,59 @@
             margin-top: 5px;
         }
 
+        /* =========================================
+           NUEVA SECCIÓN: PASES (RESERVACIÓN)
+           ========================================= */
+        .passes-section {
+            background-color: var(--color-theme);
+            background-image: url('https://www.transparenttextures.com/patterns/asfalt-light.png');
+            padding: 80px 20px;
+            text-align: center;
+            color: var(--color-white);
+        }
+
+        /* Estilo tipográfico para el logotipo de XV, en caso de no usar imagen */
+        .passes-xv-text {
+            font-family: var(--font-script);
+            font-size: 6rem;
+            color: var(--color-gold);
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        /* Clase por si prefieres usar una imagen para el logotipo XV */
+        .passes-logo-img {
+            width: 140px;
+            height: auto;
+            margin-bottom: 20px;
+            /* Descomenta la línea de abajo si necesitas aplicar un PNG */
+            /* display: block; margin: 0 auto 20px auto; */
+        }
+
+        .passes-title {
+            font-family: var(--font-title);
+            font-size: 2.2rem;
+            color: var(--color-white);
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .passes-subtitle {
+            font-family: var(--font-title);
+            font-size: 1.2rem;
+            font-weight: 400;
+            margin-bottom: 30px;
+            color: var(--color-white);
+            line-height: 1.5;
+        }
+
+        .passes-number {
+            font-family: var(--font-title);
+            font-size: 5rem;
+            color: var(--color-white);
+            line-height: 1;
+        }
+
         .rsvp-section { background-color: var(--color-theme-light); color: white; padding: 80px 20px; text-align: center; }
 
         /* =========================================
@@ -417,6 +470,12 @@
             .focus-left {
                 background-position: 25% center !important; 
             }
+
+            /* FIX PASES MÓVIL */
+            .passes-title { font-size: 1.8rem; }
+            .passes-subtitle { font-size: 1.1rem; }
+            .passes-number { font-size: 4rem; }
+            .passes-xv-text { font-size: 5rem; }
         }
     </style>
 </head>
@@ -627,6 +686,20 @@
         </div>
     </section>
 
+    <!-- NUEVA SECCIÓN DE PASES (RESERVACIÓN) -->
+    <section class="passes-section reveal">
+        
+        <!-- Placeholder para logotipo en formato imagen. Descoméntalo y usa tu propio PNG si lo prefieres -->
+        <!-- <img src="images/logo-xv.png" alt="Logotipo XV" class="passes-logo-img"> -->
+        
+        <!-- Logotipo en texto (Se muestra por defecto) -->
+        <div class="passes-xv-text">XV</div>
+        
+        <h2 class="passes-title">RESERVAMOS PARA TI</h2>
+        <p class="passes-subtitle">la siguiente cantidad<br>de pases para la recepción:</p>
+        <div class="passes-number">1 PASE</div>
+    </section>
+
     <section class="rsvp-section reveal">
         <h2 class="section-title" style="color: white;">CONFIRMACIÓN</h2>
         <p style="margin-bottom: 20px;">Por favor, confirma tu asistencia para considerar tu lugar en este día tan especial.</p>
@@ -634,9 +707,11 @@
         <!-- Enlace con mensaje preescrito (Codificado en URL) -->
         <a href="https://wa.me/523111541997?text=%C2%A1Hola!%20Confirmo%20mi%20asistencia%20a%20los%20XV%20a%C3%B1os%20de%20Sof%C3%ADa.%20%F0%9F%8E%89" class="btn" style="background-color: white; color: var(--color-theme-light); border: none;" target="_blank">Confirmar Asistencia</a>
     </section>
+    
     <section style="background-color: #faf3eb; color: #275a61; font-family: 'Poppins', sans-serif; text-align: center; font-size: 12px; padding: 20px 20px;">
         <p>Diseñado por Nexo Visual - <a style="text-decoration: none; color: #275a61;" href="https://wa.me/3112684020">311 268 4020</a></p>
     </section>
+
     <script>
         // SCRIPT DEL REPRODUCTOR DE MÚSICA
         const musicBtn = document.getElementById('music-toggle');
