@@ -11,8 +11,8 @@
     <meta property="og:title" content="Mis XV Años - Sofía González">
     <meta property="og:description" content="Te invito a celebrar conmigo este día tan especial. Sábado 21 de Noviembre de 2026.">
     <!-- Reemplaza el enlace de abajo por la URL absoluta de tu foto cuando subas la página a internet -->
-    <meta property="og:image" content="https://nexovisual.com.mx/invitacion/sofia-gonzalez-xv/images/072%20copia.jpg">
-    <meta property="og:url" content="https://nexovisual.com.mx/">
+    <meta property="og:image" content="https://nexovisual.com.mx/invitacion/sofia-gonzalez-xv/images/whatsapp-cover.jpg">
+    <meta property="og:url" content="https://nexovisual.com.mx/invitacion/sofia-gonzalez-xv/">
     <meta property="og:type" content="website">
 
     <!-- Fuentes -->
@@ -217,6 +217,14 @@
             border-radius: 30px; transition: all 0.3s ease; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px; cursor: pointer;
         }
         .btn:hover { background-color: white; color: var(--color-theme); }
+        
+        /* Botón de regalo estilo sólido para resaltar */
+        .btn-solid-gold {
+            background-color: var(--color-gold); color: white; border: none; font-family: var(--font-text); font-weight: 600;
+            padding: 10px 20px; border-radius: 20px; display: inline-block; margin-top: 10px; font-size: 0.85rem; text-transform: none;
+            transition: all 0.3s ease; box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+        .btn-solid-gold:hover { background-color: var(--color-theme-light); transform: translateY(-3px); }
 
         /* --- FOTO INTERMEDIA --- */
         .photo-divider {
@@ -261,7 +269,8 @@
             padding: 100px 20px 80px 20px; text-align: center;
         }
         .gift-framed-card {
-            position: relative; max-width: 550px; margin: 0 auto; 
+            position: relative; max-width: 650px; 
+            margin: 0 auto; 
             background: linear-gradient(135deg, #fdfdfd 0%, #faebd7 100%);
             padding: 60px 40px 40px 40px; border: 6px solid var(--color-gold); box-shadow: 0 15px 30px rgba(0,0,0,0.4);
         }
@@ -273,11 +282,12 @@
         }
         .gift-title { font-family: var(--font-title); font-size: 1.8rem; color: var(--color-gold); margin-bottom: 20px; letter-spacing: 1px; }
         .gift-text { color: var(--color-theme); font-size: 0.95rem; margin-bottom: 30px; font-weight: 500; }
-        .gift-options-row { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px; }
-        .gift-option { display: flex; flex-direction: column; align-items: center; color: var(--color-theme); transition: transform 0.3s ease; }
+        .gift-options-row { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px; align-items: flex-start; }
+        .gift-option { display: flex; flex-direction: column; align-items: center; color: var(--color-theme); transition: transform 0.3s ease; flex: 1; min-width: 150px; }
         .gift-option:hover { transform: translateY(-8px); }
         .gift-option i { font-size: 3.5rem; margin-bottom: 10px; }
-        .gift-option span { font-family: var(--font-title); font-size: 0.9rem; font-weight: 600; }
+        .gift-option span { font-family: var(--font-title); font-size: 0.9rem; font-weight: 600; margin-bottom: 5px; text-align: center; }
+        .gift-option .liverpool-number { font-size: 0.8rem; color: var(--color-silver); }
 
         /* =========================================
            SECCIÓN: ITINERARIO 
@@ -379,7 +389,7 @@
         }
 
         /* =========================================
-           NUEVA SECCIÓN: PASES (RESERVACIÓN)
+           SECCIÓN: PASES (RESERVACIÓN)
            ========================================= */
         .passes-section {
             background-color: var(--color-theme);
@@ -389,22 +399,12 @@
             color: var(--color-white);
         }
 
-        /* Estilo tipográfico para el logotipo de XV, en caso de no usar imagen */
         .passes-xv-text {
             font-family: var(--font-script);
             font-size: 6rem;
             color: var(--color-gold);
             line-height: 1;
             margin-bottom: 10px;
-        }
-
-        /* Clase por si prefieres usar una imagen para el logotipo XV */
-        .passes-logo-img {
-            width: 140px;
-            height: auto;
-            margin-bottom: 20px;
-            /* Descomenta la línea de abajo si necesitas aplicar un PNG */
-            /* display: block; margin: 0 auto 20px auto; */
         }
 
         .passes-title {
@@ -439,7 +439,18 @@
         @media (max-width: 768px) {
             .hero-title { font-size: 4.5rem; }
             .countdown-container { flex-wrap: wrap; }
-            .gift-options-row { flex-direction: column; gap: 30px; }
+            
+            /* Ajuste para que las 3 opciones de regalo bajen en columna en celular */
+            .gift-options-row { flex-direction: column; gap: 30px; align-content: center; align-items: center; }
+            
+            /* FIX MESA DE REGALOS EN MÓVIL */
+            .gift-framed-card { 
+                padding: 50px 15px 30px 15px; /* Reduce el relleno interior para ganar espacio */
+                width: 100%; /* Ajusta al ancho disponible respetando el padding de la section */
+            }
+            .gift-title { font-size: 1.6rem; margin-bottom: 15px; } /* Ajuste tipográfico */
+            .gift-option i { font-size: 3rem; } /* Iconos ligeramente más pequeños */
+            
             .bg-xv { font-size: 12rem; } 
             
             /* FIX DE LA CARTA EN MÓVIL */
@@ -604,13 +615,25 @@
             <p class="gift-text">Tu compañía es mi mejor regalo, pero si deseas hacerme un obsequio tendré las siguientes sugerencias:</p>
             
             <div class="gift-options-row">
+                <!-- Opción 1: Lluvia de Sobres -->
                 <div class="gift-option reveal delay-100">
                     <i class="fa-solid fa-envelope-open-text"></i>
                     <span>"Lluvia de sobres"</span>
                 </div>
+                
+                <!-- Opción 2: Regalo Físico -->
                 <div class="gift-option reveal delay-200">
                     <i class="fa-solid fa-gift"></i>
                     <span>Regalo en "físico"</span>
+                </div>
+                
+                <!-- Opción 3: Liverpool -->
+                <div class="gift-option reveal delay-300">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span>Mesa de Regalos Liverpool</span>
+                    <span class="liverpool-number">No. Evento: 60061407</span>
+                    <!-- Botón directo a la mesa de regalos -->
+                    <a href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/60061407" class="btn-solid-gold" target="_blank">Ver Mesa de Regalos</a>
                 </div>
             </div>
         </div>
@@ -686,13 +709,8 @@
         </div>
     </section>
 
-    <!-- NUEVA SECCIÓN DE PASES (RESERVACIÓN) -->
+    <!-- SECCIÓN DE PASES (RESERVACIÓN) -->
     <section class="passes-section reveal">
-        
-        <!-- Placeholder para logotipo en formato imagen. Descoméntalo y usa tu propio PNG si lo prefieres -->
-        <!-- <img src="images/logo-xv.png" alt="Logotipo XV" class="passes-logo-img"> -->
-        
-        <!-- Logotipo en texto (Se muestra por defecto) -->
         <div class="passes-xv-text">XV</div>
         
         <h2 class="passes-title">RESERVAMOS PARA TI</h2>
@@ -703,10 +721,7 @@
     <section class="rsvp-section reveal">
         <h2 class="section-title" style="color: white;">CONFIRMACIÓN</h2>
         <p style="margin-bottom: 20px;">Por favor, confirma tu asistencia para considerar tu lugar en este día tan especial.</p>
-        <p style="margin-bottom: 20px;">Para esta ocasión, hemos preparado una celebración solo para adultos. <br />
-            Esperamos contar con su comprensión y disfrutar juntos de esta noche tan especial.</p>
         
-        <!-- Enlace con mensaje preescrito (Codificado en URL) -->
         <a href="https://wa.me/523111541997?text=%C2%A1Hola!%20Confirmo%20mi%20asistencia%20a%20los%20XV%20a%C3%B1os%20de%20Sof%C3%ADa.%20%F0%9F%8E%89" class="btn" style="background-color: white; color: var(--color-theme-light); border: none;" target="_blank">Confirmar Asistencia</a>
     </section>
     

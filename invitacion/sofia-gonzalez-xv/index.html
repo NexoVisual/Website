@@ -222,7 +222,7 @@
         .btn-solid-gold {
             background-color: var(--color-gold); color: white; border: none; font-family: var(--font-text); font-weight: 600;
             padding: 10px 20px; border-radius: 20px; display: inline-block; margin-top: 10px; font-size: 0.85rem; text-transform: none;
-            transition: all 0.3s ease; box-shadow: 0 4px 10px rgba(0,0,0,0.15); text-decoration: none;
+            transition: all 0.3s ease; box-shadow: 0 4px 10px rgba(0,0,0,0.15);
         }
         .btn-solid-gold:hover { background-color: var(--color-theme-light); transform: translateY(-3px); }
 
@@ -269,7 +269,8 @@
             padding: 100px 20px 80px 20px; text-align: center;
         }
         .gift-framed-card {
-            position: relative; max-width: 550px; margin: 0 auto; 
+            position: relative; max-width: 650px; 
+            margin: 0 auto; 
             background: linear-gradient(135deg, #fdfdfd 0%, #faebd7 100%);
             padding: 60px 40px 40px 40px; border: 6px solid var(--color-gold); box-shadow: 0 15px 30px rgba(0,0,0,0.4);
         }
@@ -281,11 +282,11 @@
         }
         .gift-title { font-family: var(--font-title); font-size: 1.8rem; color: var(--color-gold); margin-bottom: 20px; letter-spacing: 1px; }
         .gift-text { color: var(--color-theme); font-size: 0.95rem; margin-bottom: 30px; font-weight: 500; }
-        .gift-options-row { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px; }
-        .gift-option { display: flex; flex-direction: column; align-items: center; color: var(--color-theme); transition: transform 0.3s ease; }
+        .gift-options-row { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px; align-items: flex-start; }
+        .gift-option { display: flex; flex-direction: column; align-items: center; color: var(--color-theme); transition: transform 0.3s ease; flex: 1; min-width: 150px; }
         .gift-option:hover { transform: translateY(-8px); }
         .gift-option i { font-size: 3.5rem; margin-bottom: 10px; }
-        .gift-option span { font-family: var(--font-title); font-size: 0.9rem; font-weight: 600; margin-bottom: 5px; }
+        .gift-option span { font-family: var(--font-title); font-size: 0.9rem; font-weight: 600; margin-bottom: 5px; text-align: center; }
         .gift-option .liverpool-number { font-size: 0.8rem; color: var(--color-silver); }
 
         /* =========================================
@@ -438,7 +439,18 @@
         @media (max-width: 768px) {
             .hero-title { font-size: 4.5rem; }
             .countdown-container { flex-wrap: wrap; }
-            .gift-options-row { flex-direction: column; gap: 30px; }
+            
+            /* Ajuste para que las 3 opciones de regalo bajen en columna en celular */
+            .gift-options-row { flex-direction: column; gap: 30px; align-content: center; align-items: center; }
+            
+            /* FIX MESA DE REGALOS EN MÓVIL */
+            .gift-framed-card { 
+                padding: 50px 15px 30px 15px; /* Reduce el relleno interior para ganar espacio */
+                width: 100%; /* Ajusta al ancho disponible respetando el padding de la section */
+            }
+            .gift-title { font-size: 1.6rem; margin-bottom: 15px; } /* Ajuste tipográfico */
+            .gift-option i { font-size: 3rem; } /* Iconos ligeramente más pequeños */
+            
             .bg-xv { font-size: 12rem; } 
             
             /* FIX DE LA CARTA EN MÓVIL */
@@ -593,7 +605,6 @@
         </div>
     </section>
 
-    <!-- SECCIÓN MESA DE REGALOS (ACTUALIZADA CON LIVERPOOL) -->
     <section class="gifts-section">
         <div class="gift-framed-card reveal">
             <div class="gold-seal">
@@ -610,8 +621,14 @@
                     <span>"Lluvia de sobres"</span>
                 </div>
                 
-                <!-- Opción 2: Liverpool -->
+                <!-- Opción 2: Regalo Físico -->
                 <div class="gift-option reveal delay-200">
+                    <i class="fa-solid fa-gift"></i>
+                    <span>Regalo en "físico"</span>
+                </div>
+                
+                <!-- Opción 3: Liverpool -->
+                <div class="gift-option reveal delay-300">
                     <i class="fa-solid fa-bag-shopping"></i>
                     <span>Mesa de Regalos Liverpool</span>
                     <span class="liverpool-number">No. Evento: 60061407</span>
