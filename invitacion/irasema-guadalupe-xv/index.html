@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis XV Años - Irasema Guadalupe</title>
+    
+    <!-- ETIQUETAS OPEN GRAPH -->
+    <meta property="og:title" content="Mis XV Años - Irasema Guadalupe">
+    <meta property="og:description" content="Te invito a celebrar conmigo mi cuento de hadas. Sábado 19 de Diciembre de 2026.">
+    <meta property="og:image" content="https://nexovisual.com.mx/invitacion/irasema-guadalupe-xv/images/whatsapp-cover.jpg">
+    <meta property="og:type" content="website">
+
+    <!-- Fuentes Elegantes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pinyon+Script&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <!-- Iconos FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- VARIABLES DE COLOR --- */
+        :root {
+            --c-blue-dark: #2B547E; 
+            --c-blue-light: #a9cce3; 
+            --c-blue-bg: #eaf2f8;
+            --c-white: #ffffff;
+            --c-text: #2c3e50;
+            
+            /* NUEVO GRADIENTE DORADO (Más difuminado y con mejor contraste) */
+            --gold-gradient: linear-gradient(135deg, #d2982a 0%, #f5d461 50%, #d5a950 100%);
+            
+            --font-script: 'Pinyon Script', cursive; 
+            --font-title: 'Playfair Display', serif;
+            --font-text: 'Montserrat', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-text); background-color: var(--c-blue-bg); color: var(--c-text); overflow-x: hidden; }
+
+        /* --- ANIMACIONES --- */
+        .reveal { opacity: 0; transform: translateY(50px); transition: all 1s cubic-bezier(0.25, 1, 0.5, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .fade-in { opacity: 0; transition: opacity 1.5s ease; }
+        .fade-in.active { opacity: 1; }
+        .delay-1 { transition-delay: 0.2s; }
+        .delay-2 { transition-delay: 0.4s; }
+
+        /* --- ELEMENTOS FLORALES --- */
+        .flower-decor {
+            position: absolute;
+            width: 150px; 
+            z-index: 5;
+            filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.2));
+            pointer-events: none;
+        }
+        .flower-top-left { top: -20px; left: -20px; transform: rotate(0deg); }
+        .flower-bottom-right { bottom: -20px; right: -20px; transform: rotate(180deg); }
+        .flower-center { left: 50%; transform: translateX(-50%); top: -40px; width: 120px; }
+
+        /* --- TEXTOS DORADOS --- */
+        .text-gold {
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            position: relative; height: 70vh;
+            background-image: url('images/foto-principal.jpg'); 
+            background-size: cover; background-position: center;
+            display: flex; justify-content: center; align-items: center;
+        }
+        .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(43,84,126,0.6)); }
+        
+        .hero-frame {
+            position: relative; z-index: 2; width: 90%; max-width: 500px; height: 85%;
+            border: 2px solid rgba(212, 175, 55, 0.5);
+            padding: 20px; display: flex; flex-direction: column; justify-content: space-between; align-items: center;
+            text-align: center;
+        }
+        
+        .hero-frame::before, .hero-frame::after {
+            content: ''; position: absolute; width: 40px; height: 40px; border: 3px solid #D4AF37;
+        }
+        .hero-frame::before { top: -2px; left: -2px; border-right: none; border-bottom: none; }
+        .hero-frame::after { bottom: -2px; right: -2px; border-left: none; border-top: none; }
+
+        .hero-date { font-family: var(--font-title); color: var(--c-white); letter-spacing: 4px; margin-top: 40px; font-size: 1.1rem; text-transform: uppercase; }
+        .hero-title { font-family: var(--font-script); font-size: 5.5rem; line-height: 0.9; text-shadow: 2px 4px 10px rgba(0,0,0,0.5); margin: auto 0; }
+        
+        .music-btn {
+            background: var(--gold-gradient); width: 65px; height: 65px; border-radius: 50%;
+            border: none; color: #fff; font-size: 1.5rem; cursor: pointer; display: flex; justify-content: center; align-items: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3); transition: transform 0.3s; margin-bottom: 30px; animation: pulse-gold 2s infinite;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3); /* Sombra para que resalte el icono blanco */
+        }
+        .music-btn.playing i::before { content: "\f04c"; }
+        @keyframes pulse-gold { 0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(212, 175, 55, 0); } 100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); } }
+
+        /* --- SECCIÓN INVITACIÓN --- */
+        .invitation-section { padding: 100px 20px; position: relative; background-color: var(--c-white); overflow: hidden; }
+        
+        .royal-card {
+            background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(10px);
+            border: 3px solid transparent; background-clip: padding-box; position: relative;
+            max-width: 600px; margin: 0 auto; padding: 60px 40px; text-align: center;
+            border-radius: 20px; box-shadow: 0 20px 40px rgba(43,84,126,0.1);
+        }
+        .royal-card::before {
+            content: ''; position: absolute; inset: 0; z-index: -1; margin: -3px; border-radius: 23px; background: var(--gold-gradient);
+        }
+        .royal-card p { font-size: 1.05rem; line-height: 1.8; color: var(--c-blue-dark); margin-bottom: 25px; }
+        .royal-card h3 { font-family: var(--font-title); font-size: 1.3rem; margin-bottom: 10px; color: var(--c-text); }
+        .crown-icon { font-size: 2.5rem; margin-bottom: 20px; }
+
+        /* --- CONTADOR --- */
+        .countdown-container { display: flex; margin: auto; max-width: 600px; justify-content: space-between; gap: 15px; margin-top: 50px; flex-wrap: nowrap; }
+        .countdown-item {
+            background: var(--c-blue-bg); padding: 15px; border-radius: 15px; width: 80px;
+            border: 1px solid var(--c-blue-light); box-shadow: inset 0 0 10px rgba(255,255,255,0.8);
+        }
+        .countdown-number { font-family: var(--font-title); font-size: 2.2rem; color: var(--c-blue-dark); display: block; line-height: 1; margin-bottom: 5px; }
+        .countdown-label { font-size: 0.75rem; text-transform: uppercase; color: var(--c-text); font-weight: 600; }
+
+        /* --- EVENTOS --- */
+        .events-section { padding: 80px 20px; display: flex; flex-direction: column; gap: 60px; max-width: 900px; margin: 0 auto; }
+        .arch-card {
+            background-color: var(--c-white); border-radius: 150px 150px 10px 10px; padding: 60px 30px 40px;
+            text-align: center; position: relative; box-shadow: 0 15px 30px rgba(0,0,0,0.08); border-bottom: 5px solid #D4AF37;
+            margin: 0 auto; max-width: 380px; width: 100%;
+        }
+        .arch-icon {
+            width: 80px; height: 80px; background: var(--gold-gradient); border-radius: 50%;
+            display: flex; justify-content: center; align-items: center; color: white; font-size: 2rem;
+            position: absolute; top: -40px; left: 50%; transform: translateX(-50%); box-shadow: 0 10px 20px rgba(212,175,55,0.4);
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.4); /* Sombra para resaltar el icono blanco sobre el dorado */
+        }
+        .arch-card h2 { font-family: var(--font-title); font-size: 1.5rem; margin-bottom: 10px; color: var(--c-blue-dark); }
+        .arch-card h3 { font-weight: 600; font-size: 1.1rem; margin-bottom: 15px; }
+        .arch-card p { font-size: 0.95rem; margin-bottom: 8px; color: #555; }
+        
+        .btn-gold {
+            display: inline-block; padding: 12px 25px; margin-top: 20px; background: var(--gold-gradient);
+            color: white; text-decoration: none; border-radius: 30px; font-weight: 600; font-size: 0.95rem;
+            box-shadow: 0 5px 15px rgba(212,175,55,0.3); transition: transform 0.3s;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.4); /* Sombra para que el texto blanco no se pierda */
+        }
+        .btn-gold:hover { transform: translateY(-3px); }
+
+        /* --- ITINERARIO --- */
+        .itinerary-section { background-color: var(--c-white); padding: 100px 20px; position: relative; }
+        .section-title { text-align: center; font-family: var(--font-title); font-size: 2.5rem; margin-bottom: 60px; letter-spacing: 2px; }
+        
+        .timeline-alt { position: relative; max-width: 800px; margin: 0 auto; }
+        .timeline-alt::after { content: ''; position: absolute; width: 4px; background: var(--gold-gradient); top: 0; bottom: 0; left: 50%; margin-left: -2px; border-radius: 5px; }
+        
+        .tl-container { padding: 10px 40px; position: relative; width: 50%; box-sizing: border-box; }
+        .tl-left { left: 0; text-align: right; }
+        .tl-right { left: 50%; text-align: left; }
+        
+        .tl-dot {
+            position: absolute; width: 20px; height: 20px; background-color: var(--c-white); border: 4px solid #D4AF37;
+            border-radius: 50%; top: 20px; z-index: 1; box-shadow: 0 0 10px rgba(212,175,55,0.5);
+        }
+        .tl-left .tl-dot { right: -10px; }
+        .tl-right .tl-dot { left: -10px; }
+
+        .tl-content {
+            padding: 20px; background: var(--c-blue-bg); border-radius: 15px; position: relative;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-left: 3px solid #a9cce3;
+        }
+        .tl-right .tl-content { border-left: none; border-right: 3px solid #a9cce3; }
+        .tl-time { font-family: var(--font-title); font-size: 1.2rem; color: var(--c-blue-dark); font-weight: bold; display: block; margin-bottom: 5px; }
+        .tl-desc { font-size: 0.95rem; }
+        .tl-icon { font-size: 1.5rem; color: #D4AF37; margin-bottom: 10px; }
+
+        /* --- VESTIMENTA Y REGALOS --- */
+        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; max-width: 1000px; margin: 0 auto; padding: 40px 20px 80px; }
+        
+        .info-card {
+            background: var(--c-white); border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 20px;
+            padding: 40px 30px; text-align: center; position: relative; box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        }
+        .info-card h2 { font-family: var(--font-title); font-size: 1.8rem; margin: 15px 0; color: var(--c-blue-dark); }
+        .clothes-imgs { display: flex; justify-content: center; gap: 20px; margin: 20px 0; }
+        .clothes-imgs img { height: 200px; filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.1)); }
+        .envelope-icon { font-size: 4rem; margin: 20px 0; color: #a9cce3; }
+
+        /* --- CONFIRMACIÓN Y PASES --- */
+        .rsvp-section {
+            background: linear-gradient(rgba(43,84,126,0.9), rgba(43,84,126,0.9)), url('images/textura-estrellas.jpg') center/cover;
+            color: white; text-align: center; padding: 100px 20px; position: relative; border-top: 4px solid #D4AF37;
+        }
+        .pass-box {
+            border: 2px dashed #D4AF37; display: inline-block; padding: 30px 50px; border-radius: 15px;
+            background: rgba(255,255,255,0.05); margin-bottom: 40px;
+        }
+        .pass-number { font-family: var(--font-title); font-size: 4rem; background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; line-height: 1; margin: 10px 0; }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .hero-title { font-size: 4.2rem; }
+            .hero-frame { width: 95%; height: 90%; padding: 15px; }
+            .royal-card { padding: 40px 25px; }
+            
+            .timeline-alt::after { left: 31px; }
+            .tl-container { width: 100%; padding-left: 70px; padding-right: 0; text-align: left; }
+            .tl-left, .tl-right { left: 0; }
+            .tl-dot { left: 21px !important; }
+            .tl-content { border-left: 3px solid #a9cce3; border-right: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <audio id="bg-music" loop>
+        <source src="so-this-is-love.mp3" type="audio/mpeg">
+    </audio>
+
+    <header class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-frame reveal">
+            <img src="images/flores-azules.png" class="flower-decor flower-top-left" alt="Flores decorativas">
+            <img src="images/flores-azules.png" class="flower-decor flower-bottom-right" alt="Flores decorativas">
+
+            <div class="hero-date">19 • Dic • 2026</div>
+            
+            <div>
+                <h1 class="hero-title" style="color: var(--c-white);"><span class="text-gold">Irasema</span><br>Guadalupe</h1>
+            </div>
+            
+            <button class="music-btn" id="music-toggle">
+                <i class="fa-solid fa-play"></i>
+            </button>
+        </div>
+    </header>
+
+    <section class="invitation-section">
+        <div class="royal-card reveal fade-in">
+            <img src="images/flores-centro.png" class="flower-decor flower-center" alt="Decoración floral central">
+            
+            <i class="fa-solid fa-crown text-gold crown-icon"></i>
+            <p>Hay momentos en la vida que imaginamos desde niñas. Hoy mi cuento de hadas comienza a escribirse, lleno de magia, sueños y la compañía de las personas que más amo.</p>
+            
+            <p style="margin-top: 30px;"><small style="text-transform: uppercase; color: var(--c-silver);">Con la bendición de mis padres:</small></p>
+            <h3>[Nombre de tu Papá]</h3>
+            <h3>[Nombre de tu Mamá]</h3>
+            
+            <p style="margin-top: 20px;"><small style="text-transform: uppercase; color: var(--c-silver);">Mis padrinos:</small></p>
+            <h3>[Nombre del Padrino]</h3>
+            <h3>[Nombre de la Madrina]</h3>
+        </div>
+
+        <div class="countdown-container reveal delay-1">
+            <div class="countdown-item"><span class="countdown-number" id="days">00</span><span class="countdown-label">Días</span></div>
+            <div class="countdown-item"><span class="countdown-number" id="hours">00</span><span class="countdown-label">Hrs</span></div>
+            <div class="countdown-item"><span class="countdown-number" id="minutes">00</span><span class="countdown-label">Min</span></div>
+            <div class="countdown-item"><span class="countdown-number" id="seconds">00</span><span class="countdown-label">Seg</span></div>
+        </div>
+    </section>
+
+    <section class="events-section" style="background-color: var(--c-blue-bg);">
+        <div class="arch-card reveal">
+            <div class="arch-icon"><i class="fa-solid fa-church"></i></div>
+            <h2>MISA DE ACCIÓN DE GRACIAS</h2>
+            <h3>Iglesia San Antonio de Padua</h3>
+            <p><strong>05:00 PM</strong></p>
+            <p>Camalotita, Municipio de Tecuala</p>
+            <a href="https://maps.app.goo.gl/V4dBGtBdGGw68XWg6" class="btn-gold" target="_blank">Ver Ubicación</a>
+        </div>
+
+        <div class="arch-card reveal delay-1">
+            <div class="arch-icon"><i class="fa-solid fa-champagne-glasses"></i></div>
+            <h2>RECEPCIÓN</h2>
+            <h3>En casa de mis abuelos</h3>
+            <p><strong>Al término de la misa</strong></p>
+            <p>Nos reuniremos para brindar y celebrar esta noche mágica.</p>
+            <a href="https://maps.app.goo.gl/V4dBGtBdGGw68XWg6" class="btn-gold" target="_blank">Ver Ubicación</a>
+        </div>
+    </section>
+
+    <section class="itinerary-section">
+        <h2 class="section-title text-gold reveal">ITINERARIO</h2>
+        
+        <div class="timeline-alt">
+            <div class="tl-container tl-left reveal">
+                <div class="tl-dot"></div>
+                <div class="tl-content">
+                    <i class="fa-solid fa-church tl-icon"></i>
+                    <span class="tl-time">05:00 PM</span>
+                    <span class="tl-desc">Ceremonia Religiosa</span>
+                </div>
+            </div>
+            
+            <div class="tl-container tl-right reveal delay-1">
+                <div class="tl-dot"></div>
+                <div class="tl-content">
+                    <i class="fa-solid fa-camera tl-icon"></i>
+                    <span class="tl-time">06:30 PM</span>
+                    <span class="tl-desc">Recepción y Fotos</span>
+                </div>
+            </div>
+            
+            <div class="tl-container tl-left reveal">
+                <div class="tl-dot"></div>
+                <div class="tl-content">
+                    <i class="fa-solid fa-crown tl-icon"></i>
+                    <span class="tl-time">07:30 PM</span>
+                    <span class="tl-desc">Vals y Brindis</span>
+                </div>
+            </div>
+            
+            <div class="tl-container tl-right reveal delay-1">
+                <div class="tl-dot"></div>
+                <div class="tl-content">
+                    <i class="fa-solid fa-utensils tl-icon"></i>
+                    <span class="tl-time">08:00 PM</span>
+                    <span class="tl-desc">Cena</span>
+                </div>
+            </div>
+
+            <div class="tl-container tl-left reveal">
+                <div class="tl-dot"></div>
+                <div class="tl-content">
+                    <i class="fa-solid fa-music tl-icon"></i>
+                    <span class="tl-time">09:00 PM</span>
+                    <span class="tl-desc">Baile</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="background-color: var(--c-blue-bg);">
+        <div class="info-grid">
+            <div class="info-card reveal">
+                <img src="images/flores-azules.png" class="flower-decor flower-top-left" style="width: 80px;" alt="Flores">
+                <i class="fa-solid fa-user-tie text-gold" style="font-size: 2.5rem;"></i>
+                <h2>CÓDIGO DE VESTIR</h2>
+                <p style="font-weight: 600; letter-spacing: 2px;">FORMAL</p>
+                <div class="clothes-imgs">
+                    <img src="images/vestimenta.png" alt="Vestimenta">
+                </div>
+                <p style="color: var(--c-blue-dark); font-size: 0.9rem;">Me reservo el color <strong>Azul Claro</strong> para mi vestido.</p>
+            </div>
+
+            <div class="info-card reveal delay-1">
+                <img src="images/flores-azules.png" class="flower-decor flower-bottom-right" style="width: 80px;" alt="Flores">
+                <i class="fa-solid fa-gift text-gold" style="font-size: 2.5rem;"></i>
+                <h2>MESA DE REGALOS</h2>
+                <p style="font-size: 0.95rem; margin-bottom: 10px;">Tu presencia es lo más importante, pero si deseas tener un detalle conmigo:</p>
+                <i class="fa-solid fa-envelope-open-text envelope-icon text-gold"></i>
+                <h3 style="font-family: var(--font-title); color: var(--c-blue-dark);">Lluvia de Sobres</h3>
+                <p style="font-size: 0.85rem; color: #666;">Tradición de obsequiar dinero en efectivo el día del evento en un pequeño sobre.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="rsvp-section reveal">
+        <h2 style="font-family: var(--font-script); font-size: 4.5rem; color: #D4AF37; line-height: 0.8; margin-bottom: 20px;">Mi Recepción</h2>
+        
+        <div class="pass-box">
+            <p style="letter-spacing: 2px; text-transform: uppercase; font-size: 0.9rem;">Reservamos para ti</p>
+            <div class="pass-number">1</div>
+            <p style="letter-spacing: 2px; text-transform: uppercase; font-size: 0.9rem;">Pase(s)</p>
+        </div>
+
+        <p style="max-width: 500px; margin: 0 auto 30px; font-size: 1.1rem;">Espero puedas acompañarme a vivir este sueño. Por favor confirma tu asistencia.</p>
+        
+        <a href="https://wa.me/523112046114?text=%C2%A1Hola!%20Confirmo%20mi%20asistencia%20a%20tus%20XV%20a%C3%B1os%20Irasema.%20%E2%9C%A8" class="btn-gold" target="_blank" style="font-size: 1.1rem; padding: 15px 40px;">
+            <i class="fa-brands fa-whatsapp"></i> Confirmar Asistencia
+        </a>
+    </section>
+    
+    <section style="background-color: #1a334d; color: #8faecb; text-align: center; font-size: 12px; padding: 20px;">
+        <p>Diseñado por Nexo Visual - <a style="text-decoration: none; color: #D4AF37;" href="https://wa.me/3112684020">311 268 4020</a></p>
+    </section>
+
+    <script>
+        const musicBtn = document.getElementById('music-toggle');
+        const bgMusic = document.getElementById('bg-music');
+        
+        musicBtn.addEventListener('click', () => {
+            if (bgMusic.paused) {
+                bgMusic.play();
+                musicBtn.classList.add('playing');
+            } else {
+                bgMusic.pause();
+                musicBtn.classList.remove('playing');
+            }
+        });
+
+        const countDownDate = new Date("Dec 19, 2026 17:00:00").getTime();
+        const x = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = countDownDate - now;
+            document.getElementById("days").innerHTML = Math.floor(distance / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
+            document.getElementById("hours").innerHTML = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
+            document.getElementById("minutes").innerHTML = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+            document.getElementById("seconds").innerHTML = Math.floor((distance % (1000 * 60)) / 1000).toString().padStart(2, '0');
+            if (distance < 0) { clearInterval(x); }
+        }, 1000);
+
+        function revealOnScroll() {
+            const reveals = document.querySelectorAll('.reveal');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, { threshold: 0.15 });
+            reveals.forEach(reveal => observer.observe(reveal));
+        }
+        document.addEventListener('DOMContentLoaded', revealOnScroll);
+    </script>
+</body>
+</html>
