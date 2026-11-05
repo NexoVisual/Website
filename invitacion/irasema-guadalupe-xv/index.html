@@ -65,7 +65,15 @@
             -webkit-text-fill-color: transparent;
             display: inline-block;
         }
-
+        /* --- FOTO INTERMEDIA --- */
+        .photo-divider {
+            width: 100%; 
+            height: 80vh; 
+            background-image: url('images/106 copia.jpg');
+            background-size: cover; 
+            background-position: center; 
+            background-attachment: fixed; 
+        }
         /* --- HERO SECTION --- */
         .hero {
             position: relative; height: 70vh;
@@ -88,7 +96,7 @@
         .hero-frame::before { top: -2px; left: -2px; border-right: none; border-bottom: none; }
         .hero-frame::after { bottom: -2px; right: -2px; border-left: none; border-top: none; }
 
-        .hero-date { font-family: var(--font-title); color: var(--c-white); letter-spacing: 4px; margin-top: 40px; font-size: 1.1rem; text-transform: uppercase; }
+        .hero-date { font-family: var(--font-title); color: var(--c-white); letter-spacing: 4px; margin-top: 60px; font-size: 1.1rem; text-transform: uppercase; }
         .hero-title { font-family: var(--font-script); font-size: 5.5rem; line-height: 0.9; text-shadow: 2px 4px 10px rgba(0,0,0,0.5); margin: auto 0; }
         
         .music-btn {
@@ -202,7 +210,7 @@
 
         /* --- RESPONSIVE --- */
         @media (max-width: 768px) {
-            .hero-title { font-size: 4.2rem; }
+            .hero-title { font-size: 4rem; }
             .hero-frame { width: 95%; height: 90%; padding: 15px; }
             .royal-card { padding: 40px 25px; }
             
@@ -229,6 +237,11 @@
             <div class="hero-date">19 • Dic • 2026</div>
             
             <div>
+                <div class="xv-title" style="font-family: var(--font-title); text-align: center; padding-bottom: 30px; color: var(--c-white); font-size: 2rem; line-height: 3rem;">
+                    <h2>Mis</h2>
+                <h2 style="margin-top: 20px;"><span style="color: var(--gold-gradient); font-family: var(--font-script); font-size: 5.2rem;">Xv</span></h2>
+                    <h2>Años</h2>
+            </div>
                 <h1 class="hero-title" style="color: var(--c-white);"><span class="text-gold">Irasema</span><br>Guadalupe</h1>
             </div>
             
@@ -246,12 +259,8 @@
             <p>Hay momentos en la vida que imaginamos desde niñas. Hoy mi cuento de hadas comienza a escribirse, lleno de magia, sueños y la compañía de las personas que más amo.</p>
             
             <p style="margin-top: 30px;"><small style="text-transform: uppercase; color: var(--c-silver);">Con la bendición de mis padres:</small></p>
-            <h3>[Nombre de tu Papá]</h3>
-            <h3>[Nombre de tu Mamá]</h3>
-            
-            <p style="margin-top: 20px;"><small style="text-transform: uppercase; color: var(--c-silver);">Mis padrinos:</small></p>
-            <h3>[Nombre del Padrino]</h3>
-            <h3>[Nombre de la Madrina]</h3>
+            <h3>Oscar Gabriel Ríos Quintero</h3>
+            <h3>Irasema Villegas Villa</h3>
         </div>
 
         <div class="countdown-container reveal delay-1">
@@ -281,8 +290,8 @@
             <a href="https://maps.app.goo.gl/V4dBGtBdGGw68XWg6" class="btn-gold" target="_blank">Ver Ubicación</a>
         </div>
     </section>
-
-    <section class="itinerary-section">
+    <div class="photo-divider reveal focus-left" style="background-image: url('images/img-02.jpeg');"></div>
+    <!--  <section class="itinerary-section">
         <h2 class="section-title text-gold reveal">ITINERARIO</h2>
         
         <div class="timeline-alt">
@@ -331,7 +340,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section>  -->
 
     <section style="background-color: var(--c-blue-bg);">
         <div class="info-grid">
@@ -343,7 +352,7 @@
                 <div class="clothes-imgs">
                     <img src="images/vestimenta.png" alt="Vestimenta">
                 </div>
-                <p style="color: var(--c-blue-dark); font-size: 0.9rem;">Me reservo el color <strong>Azul Claro</strong> para mi vestido.</p>
+               <!--  <p style="color: var(--c-blue-dark); font-size: 0.9rem;">Me reservo el color <strong>Azul Claro</strong> para mi vestido.</p>  -->
             </div>
 
             <div class="info-card reveal delay-1">
@@ -361,15 +370,15 @@
     <section class="rsvp-section reveal">
         <h2 style="font-family: var(--font-script); font-size: 4.5rem; color: #D4AF37; line-height: 0.8; margin-bottom: 20px;">Mi Recepción</h2>
         
-        <div class="pass-box">
+        <!-- <div class="pass-box">
             <p style="letter-spacing: 2px; text-transform: uppercase; font-size: 0.9rem;">Reservamos para ti</p>
             <div class="pass-number">1</div>
             <p style="letter-spacing: 2px; text-transform: uppercase; font-size: 0.9rem;">Pase(s)</p>
-        </div>
+        </div>  -->
 
         <p style="max-width: 500px; margin: 0 auto 30px; font-size: 1.1rem;">Espero puedas acompañarme a vivir este sueño. Por favor confirma tu asistencia.</p>
         
-        <a href="https://wa.me/523112046114?text=%C2%A1Hola!%20Confirmo%20mi%20asistencia%20a%20tus%20XV%20a%C3%B1os%20Irasema.%20%E2%9C%A8" class="btn-gold" target="_blank" style="font-size: 1.1rem; padding: 15px 40px;">
+        <a href="https://wa.me/523112046114?text=%C2%A1Hola!%20Confirmo%20mi%20asistencia%20para%20los%20XV%20a%C3%B1os%20de%20Irasema.%20" class="btn-gold" target="_blank" style="font-size: 1.1rem; padding: 15px 40px;">
             <i class="fa-brands fa-whatsapp"></i> Confirmar Asistencia
         </a>
     </section>
