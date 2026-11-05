@@ -17,6 +17,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pinyon+Script&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     <!-- Iconos FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="../../favicon.png" type="image/png">
 
     <style>
         /* --- VARIABLES DE COLOR --- */
@@ -76,7 +77,7 @@
         }
         /* --- HERO SECTION --- */
         .hero {
-            position: relative; height: 70vh;
+            position: relative; height: 85vh;
             background-image: url('images/foto-principal.jpg'); 
             background-size: cover; background-position: center;
             display: flex; justify-content: center; align-items: center;
@@ -102,7 +103,7 @@
         .music-btn {
             background: var(--gold-gradient); width: 65px; height: 65px; border-radius: 50%;
             border: none; color: #fff; font-size: 1.5rem; cursor: pointer; display: flex; justify-content: center; align-items: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3); transition: transform 0.3s; margin-bottom: 30px; animation: pulse-gold 2s infinite;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3); transition: transform 0.3s; animation: pulse-gold 2s infinite;
             text-shadow: 1px 1px 3px rgba(0,0,0,0.3); /* Sombra para que resalte el icono blanco */
         }
         .music-btn.playing i::before { content: "\f04c"; }
@@ -210,8 +211,8 @@
 
         /* --- RESPONSIVE --- */
         @media (max-width: 768px) {
-            .hero-title { font-size: 4rem; }
-            .hero-frame { width: 95%; height: 90%; padding: 15px; }
+            .hero-title { font-size: 3rem; }
+            .hero-frame { width: 95%; height: 90%; padding: 30px 15px; }
             .royal-card { padding: 40px 25px; }
             
             .timeline-alt::after { left: 31px; }
@@ -237,9 +238,9 @@
             <div class="hero-date">19 • Dic • 2026</div>
             
             <div>
-                <div class="xv-title" style="font-family: var(--font-title); text-align: center; padding-bottom: 30px; color: var(--c-white); font-size: 2rem; line-height: 3rem;">
+                <div class="xv-title" style="font-family: var(--font-title); text-align: center; padding-bottom: 30px; color: var(--c-white); font-size: 1.5rem; line-height: 2.5rem;">
                     <h2>Mis</h2>
-                <h2 style="margin-top: 20px;"><span style="color: var(--gold-gradient); font-family: var(--font-script); font-size: 5.2rem;">Xv</span></h2>
+                <h2 style="margin-top: 20px;"><span style="color: var(--gold-gradient); font-family: var(--font-script); font-size: 4rem;">Xv</span></h2>
                     <h2>Años</h2>
             </div>
                 <h1 class="hero-title" style="color: var(--c-white);"><span class="text-gold">Irasema</span><br>Guadalupe</h1>
@@ -278,7 +279,7 @@
             <h3>Iglesia San Antonio de Padua</h3>
             <p><strong>05:00 PM</strong></p>
             <p>Camalotita, Municipio de Tecuala</p>
-            <a href="https://maps.app.goo.gl/V4dBGtBdGGw68XWg6" class="btn-gold" target="_blank">Ver Ubicación</a>
+            <a href="https://maps.app.goo.gl/JWj1bimz9n94WcXT9" class="btn-gold" target="_blank">Ver Ubicación</a>
         </div>
 
         <div class="arch-card reveal delay-1">
@@ -366,7 +367,7 @@
             </div>
         </div>
     </section>
-
+    <div class="photo-divider reveal focus-left" style="background-image: url('images/img-01.jpeg');"></div>
     <section class="rsvp-section reveal">
         <h2 style="font-family: var(--font-script); font-size: 4.5rem; color: #D4AF37; line-height: 0.8; margin-bottom: 20px;">Mi Recepción</h2>
         
