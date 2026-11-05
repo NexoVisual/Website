@@ -38,7 +38,23 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: var(--font-text); background-color: var(--c-blue-bg); color: var(--c-text); overflow-x: hidden; }
+html, body { 
+    font-family: var(--font-text); 
+    background-color: var(--c-blue-bg); 
+    color: var(--c-text); 
+    overflow-x: hidden; 
+    width: 100%; 
+    max-width: 100vw;
+    position: relative;
+}
 
+@media (max-width: 768px) {
+        /* Corrección para que las flores no rompan el ancho en celular */
+        .flower-top-left { left: -5px; top: -15px; }
+        .flower-bottom-right { right: -5px; bottom: -15px; }
+}
+        
+        /* ... aquí sigue el resto del código responsive que ya tenías ... */
         /* --- ANIMACIONES --- */
         .reveal { opacity: 0; transform: translateY(50px); transition: all 1s cubic-bezier(0.25, 1, 0.5, 1); }
         .reveal.active { opacity: 1; transform: translateY(0); }
@@ -97,7 +113,7 @@
         .hero-frame::before { top: -2px; left: -2px; border-right: none; border-bottom: none; }
         .hero-frame::after { bottom: -2px; right: -2px; border-left: none; border-top: none; }
 
-        .hero-date { font-family: var(--font-title); color: var(--c-white); letter-spacing: 4px; margin-top: 60px; font-size: 1.1rem; text-transform: uppercase; }
+        .hero-date { font-family: var(--font-title); color: var(--c-white); letter-spacing: 4px; margin-top: 40px; font-size: 1.1rem; text-transform: uppercase; }
         .hero-title { font-family: var(--font-script); font-size: 5.5rem; line-height: 0.9; text-shadow: 2px 4px 10px rgba(0,0,0,0.5); margin: auto 0; }
         
         .music-btn {
@@ -288,7 +304,6 @@
             <h3>En casa de mis abuelos</h3>
             <p><strong>Al término de la misa</strong></p>
             <p>Nos reuniremos para brindar y celebrar esta noche mágica.</p>
-            <a href="https://maps.app.goo.gl/V4dBGtBdGGw68XWg6" class="btn-gold" target="_blank">Ver Ubicación</a>
         </div>
     </section>
     <div class="photo-divider reveal focus-left" style="background-image: url('images/img-02.jpeg');"></div>
