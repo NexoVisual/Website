@@ -38,23 +38,22 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: var(--font-text); background-color: var(--c-blue-bg); color: var(--c-text); overflow-x: hidden; }
-html, body { 
-    font-family: var(--font-text); 
-    background-color: var(--c-blue-bg); 
-    color: var(--c-text); 
-    overflow-x: hidden; 
-    width: 100%; 
-    max-width: 100vw;
-    position: relative;
-}
+        html, body { 
+            font-family: var(--font-text); 
+            background-color: var(--c-blue-bg); 
+            color: var(--c-text); 
+            overflow-x: hidden; 
+            width: 100%; 
+            max-width: 100vw;
+            position: relative;
+        }
 
-@media (max-width: 768px) {
-        /* Corrección para que las flores no rompan el ancho en celular */
-        .flower-top-left { left: -5px; top: -15px; }
-        .flower-bottom-right { right: -5px; bottom: -15px; }
-}
+        @media (max-width: 768px) {
+            /* Corrección para que las flores no rompan el ancho en celular */
+            .flower-top-left { left: -5px; top: -15px; }
+            .flower-bottom-right { right: -5px; bottom: -15px; }
+        }
         
-        /* ... aquí sigue el resto del código responsive que ya tenías ... */
         /* --- ANIMACIONES --- */
         .reveal { opacity: 0; transform: translateY(50px); transition: all 1s cubic-bezier(0.25, 1, 0.5, 1); }
         .reveal.active { opacity: 1; transform: translateY(0); }
@@ -120,7 +119,7 @@ html, body {
             background: var(--gold-gradient); width: 65px; height: 65px; border-radius: 50%;
             border: none; color: #fff; font-size: 1.5rem; cursor: pointer; display: flex; justify-content: center; align-items: center;
             box-shadow: 0 4px 15px rgba(0,0,0,0.3); transition: transform 0.3s; animation: pulse-gold 2s infinite;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.3); /* Sombra para que resalte el icono blanco */
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3); 
         }
         .music-btn.playing i::before { content: "\f04c"; }
         @keyframes pulse-gold { 0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(212, 175, 55, 0); } 100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); } }
@@ -161,7 +160,7 @@ html, body {
             width: 80px; height: 80px; background: var(--gold-gradient); border-radius: 50%;
             display: flex; justify-content: center; align-items: center; color: white; font-size: 2rem;
             position: absolute; top: -40px; left: 50%; transform: translateX(-50%); box-shadow: 0 10px 20px rgba(212,175,55,0.4);
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.4); /* Sombra para resaltar el icono blanco sobre el dorado */
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.4); 
         }
         .arch-card h2 { font-family: var(--font-title); font-size: 1.5rem; margin-bottom: 10px; color: var(--c-blue-dark); }
         .arch-card h3 { font-weight: 600; font-size: 1.1rem; margin-bottom: 15px; }
@@ -171,7 +170,7 @@ html, body {
             display: inline-block; padding: 12px 25px; margin-top: 20px; background: var(--gold-gradient);
             color: white; text-decoration: none; border-radius: 30px; font-weight: 600; font-size: 0.95rem;
             box-shadow: 0 5px 15px rgba(212,175,55,0.3); transition: transform 0.3s;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.4); /* Sombra para que el texto blanco no se pierda */
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.4); 
         }
         .btn-gold:hover { transform: translateY(-3px); }
 
@@ -219,11 +218,54 @@ html, body {
             background: linear-gradient(rgba(43,84,126,0.9), rgba(43,84,126,0.9)), url('images/textura-estrellas.jpg') center/cover;
             color: white; text-align: center; padding: 100px 20px; position: relative; border-top: 4px solid #D4AF37;
         }
-        .pass-box {
-            border: 2px dashed #D4AF37; display: inline-block; padding: 30px 50px; border-radius: 15px;
-            background: rgba(255,255,255,0.05); margin-bottom: 40px;
+
+        /* --- ESTILOS PARA EL SELECTOR DE PASES --- */
+        .pass-selector-container {
+            margin: 0 auto 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
         }
-        .pass-number { font-family: var(--font-title); font-size: 4rem; background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; line-height: 1; margin: 10px 0; }
+        
+        .pass-label {
+            font-family: var(--font-title);
+            font-size: 1.2rem;
+            color: var(--c-white);
+            letter-spacing: 2px;
+        }
+
+        .select-passes {
+            background: transparent;
+            border: 2px solid #D4AF37;
+            color: var(--c-white);
+            font-family: var(--font-title);
+            font-size: 1.8rem;
+            padding: 10px 30px;
+            border-radius: 30px;
+            cursor: pointer;
+            outline: none;
+            appearance: none;
+            -webkit-appearance: none;
+            text-align: center;
+            background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23D4AF37%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+            background-repeat: no-repeat;
+            background-position: right 15px top 50%;
+            background-size: 16px auto;
+            min-width: 150px;
+            transition: all 0.3s;
+        }
+
+        .select-passes:hover, .select-passes:focus {
+            box-shadow: 0 0 15px rgba(212,175,55,0.4);
+            background-color: rgba(255,255,255,0.1);
+        }
+
+        .select-passes option {
+            background-color: var(--c-blue-dark);
+            color: white;
+            font-size: 1.2rem;
+        }
 
         /* --- RESPONSIVE --- */
         @media (max-width: 768px) {
@@ -306,58 +348,9 @@ html, body {
             <p>Nos reuniremos para brindar y celebrar esta noche mágica.</p>
         </div>
     </section>
+    
     <div class="photo-divider reveal focus-left" style="background-image: url('images/img-02.jpeg');"></div>
-    <!--  <section class="itinerary-section">
-        <h2 class="section-title text-gold reveal">ITINERARIO</h2>
-        
-        <div class="timeline-alt">
-            <div class="tl-container tl-left reveal">
-                <div class="tl-dot"></div>
-                <div class="tl-content">
-                    <i class="fa-solid fa-church tl-icon"></i>
-                    <span class="tl-time">05:00 PM</span>
-                    <span class="tl-desc">Ceremonia Religiosa</span>
-                </div>
-            </div>
-            
-            <div class="tl-container tl-right reveal delay-1">
-                <div class="tl-dot"></div>
-                <div class="tl-content">
-                    <i class="fa-solid fa-camera tl-icon"></i>
-                    <span class="tl-time">06:30 PM</span>
-                    <span class="tl-desc">Recepción y Fotos</span>
-                </div>
-            </div>
-            
-            <div class="tl-container tl-left reveal">
-                <div class="tl-dot"></div>
-                <div class="tl-content">
-                    <i class="fa-solid fa-crown tl-icon"></i>
-                    <span class="tl-time">07:30 PM</span>
-                    <span class="tl-desc">Vals y Brindis</span>
-                </div>
-            </div>
-            
-            <div class="tl-container tl-right reveal delay-1">
-                <div class="tl-dot"></div>
-                <div class="tl-content">
-                    <i class="fa-solid fa-utensils tl-icon"></i>
-                    <span class="tl-time">08:00 PM</span>
-                    <span class="tl-desc">Cena</span>
-                </div>
-            </div>
-
-            <div class="tl-container tl-left reveal">
-                <div class="tl-dot"></div>
-                <div class="tl-content">
-                    <i class="fa-solid fa-music tl-icon"></i>
-                    <span class="tl-time">09:00 PM</span>
-                    <span class="tl-desc">Baile</span>
-                </div>
-            </div>
-        </div>
-    </section>  -->
-
+    
     <section style="background-color: var(--c-blue-bg);">
         <div class="info-grid">
             <div class="info-card reveal">
@@ -368,7 +361,6 @@ html, body {
                 <div class="clothes-imgs">
                     <img src="images/vestimenta.png" alt="Vestimenta">
                 </div>
-               <!--  <p style="color: var(--c-blue-dark); font-size: 0.9rem;">Me reservo el color <strong>Azul Claro</strong> para mi vestido.</p>  -->
             </div>
 
             <div class="info-card reveal delay-1">
@@ -382,19 +374,29 @@ html, body {
             </div>
         </div>
     </section>
-    <div class="photo-divider reveal focus-left" style="background-image: url('images/img-01.jpeg');"></div>
-    <section class="rsvp-section reveal">
-        <h2 style="font-family: var(--font-script); font-size: 4.5rem; color: #D4AF37; line-height: 0.8; margin-bottom: 20px;">Mi Recepción</h2>
-        
-        <!-- <div class="pass-box">
-            <p style="letter-spacing: 2px; text-transform: uppercase; font-size: 0.9rem;">Reservamos para ti</p>
-            <div class="pass-number">1</div>
-            <p style="letter-spacing: 2px; text-transform: uppercase; font-size: 0.9rem;">Pase(s)</p>
-        </div>  -->
 
-        <p style="max-width: 500px; margin: 0 auto 30px; font-size: 1.1rem;">Espero puedas acompañarme a vivir este sueño. Por favor confirma tu asistencia.</p>
+    <div class="photo-divider reveal focus-left" style="background-image: url('images/img-01.jpeg');"></div>
+    
+    <section class="rsvp-section reveal">
+        <h2 style="font-family: var(--font-script); font-size: 4.5rem; color: #D4AF37; line-height: 0.8; margin-bottom: 40px;">Mi Recepción</h2>
         
-        <a href="https://wa.me/523112046114?text=%C2%A1Hola!%20Confirmo%20mi%20asistencia%20para%20los%20XV%20a%C3%B1os%20de%20Irasema.%20" class="btn-gold" target="_blank" style="font-size: 1.1rem; padding: 15px 40px;">
+        <!-- SELECTOR DINÁMICO DE PASES -->
+        <div class="pass-selector-container">
+            <label for="passes-amount" class="pass-label">RESERVAMOS PARA TI:</label>
+            <select id="passes-amount" class="select-passes">
+                <!-- Por defecto dejamos 1 pase, pero el usuario puede elegir más -->
+                <option value="1" selected>1 Pase</option>
+                <option value="2">2 Pases</option>
+                <option value="3">3 Pases</option>
+                <option value="4">4 Pases</option>
+                <option value="5">5 Pases</option>
+            </select>
+        </div>
+
+        <p style="max-width: 500px; margin: 0 auto 30px; font-size: 1.1rem;">Espero puedas acompañarme a vivir este sueño. Por favor selecciona tus pases y confirma tu asistencia.</p>
+        
+        <!-- El href se actualiza dinámicamente con JavaScript -->
+        <a id="whatsapp-btn" href="https://wa.me/523112046114?text=%C2%A1Hola!%20Confirmo%20mi%20asistencia%20para%20los%20XV%20a%C3%B1os%20de%20Irasema.%20Confirmando%201%20pase(s)." class="btn-gold" target="_blank" style="font-size: 1.1rem; padding: 15px 40px;">
             <i class="fa-brands fa-whatsapp"></i> Confirmar Asistencia
         </a>
     </section>
@@ -404,6 +406,23 @@ html, body {
     </section>
 
     <script>
+        // SCRIPT PARA ACTUALIZAR MENSAJE DE WHATSAPP CON LOS PASES
+        const passSelector = document.getElementById('passes-amount');
+        const whatsappBtn = document.getElementById('whatsapp-btn');
+        const phoneNumber = "523112046114"; // Número de confirmación
+
+        // Función que actualiza la URL cuando cambias el número en la lista
+        passSelector.addEventListener('change', function() {
+            const selectedPasses = this.value;
+            // Codificamos el mensaje para que WhatsApp lo entienda: "¡Hola! Confirmo mi asistencia para los XV años de Irasema. Confirmando X pase(s)."
+            const message = encodeURIComponent(`¡Hola! Confirmo mi asistencia para los XV años de Irasema. Confirmando ${selectedPasses} pase(s).`);
+            
+            // Reemplazamos el enlace del botón
+            whatsappBtn.href = `https://wa.me/${phoneNumber}?text=${message}`;
+        });
+
+
+        // SCRIPT DE AUDIO Y ANIMACIONES
         const musicBtn = document.getElementById('music-toggle');
         const bgMusic = document.getElementById('bg-music');
         
